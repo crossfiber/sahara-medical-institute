@@ -4,8 +4,8 @@
 **Target site:** https://www.saharamedicalinstitute.com/
 **Date built:** 2026-05-30
 **Owner contact:** (702) 331-1700 · 5781 W Sahara Ave #500, Las Vegas, NV 89146
-**Live URL:** [PENDING - populated after deploy]
-**Repo:** [PENDING - to be created at github.com/crossfiber/sahara-medical-institute]
+**Live URL:** https://crossfiber.github.io/sahara-medical-institute/
+**Repo:** https://github.com/crossfiber/sahara-medical-institute
 
 ## Stack
 
