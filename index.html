@@ -33,33 +33,30 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --chalk: #F5EFE2;
-            --chalk-edge: #EBE3D0;
-            --paper: #FBF7EC;
-            --terra: #B84A28;
-            --terra-deep: #8C3618;
-            --terra-soft: rgba(184, 74, 40, 0.10);
-            --ink: #26221E;
-            --ink-soft: #5C544C;
-            --ink-mute: #8A8278;
-            --umber: #2A2820;
-            --umber-edge: #1E1C16;
-            --moss: #3E4A2E;
-            --sage-block: #C3CFB4;
-            --hairline: rgba(38, 34, 30, 0.14);
-            --hairline-soft: rgba(38, 34, 30, 0.08);
-            --hairline-dark: rgba(245, 239, 226, 0.18);
+            --paper: #FBF8F2;
+            --mist: #F3EFF8;
+            --lilac: #E7E0F1;
+            --cream: #F4EFE6;
+            --plum: #3E2E72;
+            --plum-deep: #2A1E52;
+            --plum-soft: rgba(62, 46, 114, 0.08);
+            --gold: #D89A28;
+            --gold-deep: #B17F16;
+            --ink: #29243C;
+            --ink-soft: #5A536E;
+            --ink-mute: #8D87A1;
+            --hairline: rgba(41, 36, 60, 0.14);
+            --hairline-soft: rgba(41, 36, 60, 0.07);
+            --hairline-dark: rgba(244, 239, 230, 0.16);
             --nav-h: 76px;
         }
-        @media (max-width: 760px) {
-            :root { --nav-h: 60px; }
-        }
+        @media (max-width: 760px) { :root { --nav-h: 60px; } }
 
         html {
             scroll-behavior: smooth;
@@ -67,10 +64,10 @@
             -webkit-text-size-adjust: 100%;
         }
         body {
-            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
             color: var(--ink);
-            background: var(--chalk);
-            line-height: 1.58;
+            background: var(--paper);
+            line-height: 1.6;
             font-weight: 400;
             font-size: 17px;
             -webkit-font-smoothing: antialiased;
@@ -79,1213 +76,473 @@
         h1, h2, h3, h4 {
             font-family: 'Fraunces', Georgia, serif;
             font-weight: 400;
-            line-height: 1.04;
-            letter-spacing: -0.025em;
+            line-height: 1.06;
+            letter-spacing: -0.02em;
             color: var(--ink);
-            font-variation-settings: "opsz" 120;
+            font-variation-settings: "opsz" 120, "SOFT" 30;
         }
         a { color: inherit; text-decoration: none; }
         img { max-width: 100%; display: block; }
         button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
-        ::selection { background: var(--terra); color: var(--paper); }
+        ::selection { background: var(--plum); color: var(--cream); }
 
-        .frame {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-        @media (max-width: 760px) {
-            .frame { padding: 0 22px; }
-        }
-
-        .rule {
-            height: 1px;
-            background: var(--hairline);
-            border: none;
-            margin: 0;
-        }
+        .frame { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+        @media (max-width: 760px) { .frame { padding: 0 22px; } }
 
         .overline {
-            font-family: 'Manrope', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 0.72rem;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 0.22em;
             text-transform: uppercase;
-            color: var(--ink-soft);
+            color: var(--gold-deep);
         }
 
         .link-arrow {
             display: inline-flex;
             align-items: baseline;
             gap: 9px;
-            font-family: 'Manrope', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 0.95rem;
             font-weight: 600;
-            color: var(--terra);
-            border-bottom: 1.5px solid var(--terra);
+            color: var(--plum);
+            border-bottom: 1.5px solid var(--plum);
             padding-bottom: 2px;
             transition: color 0.2s, border-color 0.2s, gap 0.2s;
         }
-        .link-arrow:hover {
-            color: var(--terra-deep);
-            border-color: var(--terra-deep);
-            gap: 13px;
-        }
+        .link-arrow:hover { color: var(--plum-deep); border-color: var(--plum-deep); gap: 13px; }
         .link-arrow .a { line-height: 1; }
-
-        .span-it {
-            font-family: 'Fraunces', serif;
-            font-style: italic;
-            font-weight: 500;
-        }
 
         /* ========== NAV ========== */
         nav.bar {
             position: fixed; top: 0; left: 0; right: 0; z-index: 80;
-            background: rgba(245, 239, 226, 0.96);
+            background: rgba(251, 248, 242, 0.97);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--hairline-soft);
         }
         .bar-row {
             display: flex; align-items: center; justify-content: space-between;
-            gap: 24px;
-            height: var(--nav-h);
-            padding: 0 40px;
-            max-width: 1440px; margin: 0 auto;
+            gap: 24px; height: var(--nav-h);
+            padding: 0 40px; max-width: 1440px; margin: 0 auto;
+        }
+        @media (max-width: 760px) { .bar-row { padding: 0 22px; } }
+        .bar-logo { display: inline-flex; align-items: center; gap: 13px; }
+        .bar-logo img { height: 38px; width: auto; }
+        .bar-logo .word { display: inline-flex; flex-direction: column; line-height: 1.02; }
+        .bar-logo .name {
+            font-family: 'Fraunces', serif; font-size: 1.12rem; font-weight: 600;
+            color: var(--plum); letter-spacing: -0.01em;
+        }
+        .bar-logo .sub {
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.62rem; font-weight: 700;
+            color: var(--ink-mute); letter-spacing: 0.16em; text-transform: uppercase; margin-top: 3px;
         }
         @media (max-width: 760px) {
-            .bar-row { padding: 0 22px; }
-        }
-        .bar-word {
-            display: inline-flex; flex-direction: column;
-            line-height: 1.02;
-        }
-        .bar-word .name {
-            font-family: 'Fraunces', serif;
-            font-size: 1.18rem;
-            font-weight: 500;
-            color: var(--ink);
-            letter-spacing: -0.018em;
-        }
-        .bar-word .sub {
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.66rem;
-            font-weight: 600;
-            color: var(--ink-mute);
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            margin-top: 3px;
-        }
-        @media (max-width: 760px) {
-            .bar-word .name { font-size: 1.02rem; }
-            .bar-word .sub { font-size: 0.58rem; letter-spacing: 0.14em; }
+            .bar-logo img { height: 32px; }
+            .bar-logo .name { font-size: 1rem; }
+            .bar-logo .word { display: none; }
         }
 
-        .bar-links {
-            display: flex; gap: 28px; align-items: center;
-        }
+        .bar-links { display: flex; gap: 28px; align-items: center; }
         .bar-links a {
-            font-size: 0.92rem;
-            font-weight: 500;
-            color: var(--ink);
-            position: relative;
-            padding: 4px 0;
-            transition: color 0.2s;
+            font-size: 0.92rem; font-weight: 500; color: var(--ink);
+            position: relative; padding: 4px 0; transition: color 0.2s;
         }
-        .bar-links a:hover { color: var(--terra); }
+        .bar-links a:hover { color: var(--plum); }
         .bar-links a::after {
-            content: '';
-            position: absolute; left: 0; right: 0; bottom: 0;
-            height: 1px;
-            background: var(--terra);
-            transform: scaleX(0);
-            transform-origin: left;
+            content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+            background: var(--gold); transform: scaleX(0); transform-origin: left;
             transition: transform 0.22s ease;
         }
         .bar-links a:hover::after { transform: scaleX(1); }
 
-        .bar-right {
-            display: flex; align-items: center; gap: 22px;
-        }
+        .bar-right { display: flex; align-items: center; gap: 20px; }
         .bar-lang {
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: var(--ink-soft);
-            letter-spacing: 0.04em;
-            transition: color 0.2s;
-            padding: 2px 0;
-            border-bottom: 1px solid transparent;
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem; font-weight: 600;
+            color: var(--ink-soft); letter-spacing: 0.03em; transition: color 0.2s;
+            padding: 2px 0; border-bottom: 1px solid transparent;
         }
-        .bar-lang:hover, .bar-lang.active {
-            color: var(--terra);
-            border-color: var(--terra);
+        .bar-lang:hover, .bar-lang.active { color: var(--plum); border-color: var(--gold); }
+        .bar-cta {
+            display: inline-flex; align-items: center; gap: 9px;
+            background: var(--plum); color: var(--cream);
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; font-weight: 600;
+            padding: 11px 20px; border-radius: 100px; transition: background 0.2s, transform 0.2s;
         }
-        .bar-phone {
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.92rem;
-            font-weight: 600;
-            color: var(--ink);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: color 0.2s;
-        }
-        .bar-phone:hover { color: var(--terra); }
-        .bar-phone .dot {
-            width: 5px; height: 5px; border-radius: 50%;
-            background: var(--terra);
-            display: inline-block;
-        }
-
-        .bar-burger {
-            display: none;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--ink);
-            padding: 6px 0;
-        }
-        .bar-burger .lines {
-            display: inline-flex; flex-direction: column; gap: 4px;
-            width: 22px;
-        }
-        .bar-burger .lines span {
-            height: 1.5px; background: var(--ink);
-            transition: all 0.3s;
-        }
-        body.menu-open .bar-burger .lines span:nth-child(1) {
-            transform: translateY(5.5px) rotate(45deg);
-        }
-        body.menu-open .bar-burger .lines span:nth-child(2) {
-            opacity: 0;
-        }
-        body.menu-open .bar-burger .lines span:nth-child(3) {
-            transform: translateY(-5.5px) rotate(-45deg);
-        }
+        .bar-cta:hover { background: var(--plum-deep); transform: translateY(-1px); }
+        .bar-cta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); display: inline-block; }
 
         .bar-mobile-call {
-            display: none;
-            color: var(--ink);
-            font-size: 0.88rem;
-            font-weight: 600;
+            display: none; align-items: center; gap: 8px; color: var(--plum);
+            font-size: 0.9rem; font-weight: 700;
         }
-        .bar-mobile-call .num { letter-spacing: 0.01em; }
+        .bar-mobile-call .ic { color: var(--gold-deep); }
+
+        .bar-burger {
+            display: none; align-items: center; gap: 8px;
+            font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
+            text-transform: uppercase; color: var(--ink); padding: 6px 0;
+        }
+        .bar-burger .lines { display: inline-flex; flex-direction: column; gap: 4px; width: 22px; }
+        .bar-burger .lines span { height: 2px; background: var(--plum); transition: all 0.3s; }
+        body.menu-open .bar-burger .lines span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+        body.menu-open .bar-burger .lines span:nth-child(2) { opacity: 0; }
+        body.menu-open .bar-burger .lines span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+        body.menu-open .bar-burger { display: none; }
 
         @media (max-width: 980px) {
             .bar-links, .bar-right .desk { display: none; }
             .bar-burger { display: inline-flex; }
-            .bar-mobile-call { display: inline-flex; align-items: center; gap: 6px; }
-        }
-        @media (max-width: 480px) {
-            .bar-mobile-call .num { display: none; }
-            .bar-mobile-call::before {
-                content: '\f095';
-                font-family: 'Fraunces', serif;
-                font-style: italic;
-                font-weight: 500;
-                color: var(--terra);
-                font-size: 1.1rem;
-            }
+            .bar-mobile-call { display: inline-flex; }
         }
 
-        /* Mobile sheet menu (full-screen overlay surface, not a side drawer) */
+        /* Mobile sheet */
         .sheet {
-            position: fixed; inset: 0;
-            background: var(--paper);
-            z-index: 70;
-            opacity: 0; pointer-events: none;
-            transition: opacity 0.32s ease;
+            position: fixed; inset: 0; background: var(--paper); z-index: 70;
+            opacity: 0; pointer-events: none; transition: opacity 0.32s ease;
             display: flex; flex-direction: column;
             padding-top: calc(var(--nav-h) + env(safe-area-inset-top));
             padding-bottom: env(safe-area-inset-bottom);
         }
         .sheet.open { opacity: 1; pointer-events: auto; }
-        .sheet-links {
-            flex: 1;
-            display: flex; flex-direction: column;
-            padding: 18px 28px 0;
-            overflow-y: auto;
+        .sheet-close {
+            position: absolute; top: max(16px, env(safe-area-inset-top)); right: 22px;
+            font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--plum); display: inline-flex; align-items: center; gap: 8px; padding: 8px 0;
         }
+        .sheet-links { flex: 1; display: flex; flex-direction: column; padding: 18px 28px 0; overflow-y: auto; }
         .sheet-links a {
-            font-family: 'Fraunces', serif;
-            font-size: 2.2rem;
-            font-weight: 400;
-            letter-spacing: -0.025em;
-            color: var(--ink);
-            padding: 18px 0;
+            font-family: 'Fraunces', serif; font-size: 2.1rem; font-weight: 400;
+            letter-spacing: -0.02em; color: var(--ink); padding: 17px 0;
             border-bottom: 1px solid var(--hairline-soft);
-            transition: color 0.2s;
             opacity: 0; transform: translateY(8px);
             transition: opacity 0.42s ease, transform 0.42s ease, color 0.2s;
         }
-        .sheet.open .sheet-links a {
-            opacity: 1; transform: translateY(0);
-        }
-        .sheet.open .sheet-links a:nth-child(1) { transition-delay: 0.10s; }
-        .sheet.open .sheet-links a:nth-child(2) { transition-delay: 0.16s; }
-        .sheet.open .sheet-links a:nth-child(3) { transition-delay: 0.22s; }
-        .sheet.open .sheet-links a:nth-child(4) { transition-delay: 0.28s; }
-        .sheet.open .sheet-links a:nth-child(5) { transition-delay: 0.34s; }
-        .sheet.open .sheet-links a:nth-child(6) { transition-delay: 0.40s; }
-        .sheet-links a:active { color: var(--terra); }
+        .sheet.open .sheet-links a { opacity: 1; transform: translateY(0); }
+        .sheet.open .sheet-links a:nth-child(1) { transition-delay: 0.08s; }
+        .sheet.open .sheet-links a:nth-child(2) { transition-delay: 0.13s; }
+        .sheet.open .sheet-links a:nth-child(3) { transition-delay: 0.18s; }
+        .sheet.open .sheet-links a:nth-child(4) { transition-delay: 0.23s; }
+        .sheet.open .sheet-links a:nth-child(5) { transition-delay: 0.28s; }
+        .sheet.open .sheet-links a:nth-child(6) { transition-delay: 0.33s; }
+        .sheet-links a:active { color: var(--plum); }
         .sheet-foot {
             padding: 22px 28px max(28px, env(safe-area-inset-bottom));
             border-top: 1px solid var(--hairline-soft);
-            display: flex; flex-direction: column;
-            gap: 14px;
+            display: flex; flex-direction: column; gap: 16px;
         }
         .sheet-foot a.phone {
-            font-family: 'Fraunces', serif;
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: var(--terra);
-            display: inline-flex; align-items: center; gap: 12px;
+            background: var(--plum); color: var(--cream); border-radius: 100px;
+            padding: 16px 22px; font-size: 1.15rem; font-weight: 700;
+            display: inline-flex; align-items: center; justify-content: center; gap: 12px;
         }
+        .sheet-foot a.phone .ic { color: var(--gold); }
         .sheet-foot .lang {
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--ink-soft);
-            letter-spacing: 0.08em;
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; font-weight: 600; color: var(--ink-soft);
         }
-        .sheet-foot .lang span {
-            color: var(--terra);
-            border-bottom: 1px solid var(--terra);
-            cursor: pointer;
-        }
+        .sheet-foot .lang span { color: var(--plum); border-bottom: 1px solid var(--gold); cursor: pointer; }
 
         /* ========== HERO ========== */
-        .hero {
-            padding-top: calc(var(--nav-h) + 56px);
-            padding-bottom: 0;
-            background: var(--chalk);
-            position: relative;
-        }
+        .hero { padding-top: calc(var(--nav-h) + 52px); background: var(--paper); position: relative; }
         .hero-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-            gap: 0;
-            align-items: end;
-            max-width: 1440px;
-            margin: 0 auto;
-            padding-left: 40px;
+            display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+            gap: 0; align-items: end; max-width: 1440px; margin: 0 auto; padding-left: 40px;
         }
-        .hero-text {
-            padding: 32px 60px 90px 0;
-        }
+        .hero-text { padding: 30px 60px 84px 0; }
         .hero-tag {
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--ink-soft);
-            margin-bottom: 28px;
-            display: flex; align-items: center; gap: 14px;
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-deep);
+            margin-bottom: 26px; display: flex; align-items: center; gap: 14px;
         }
-        .hero-tag::before {
-            content: '';
-            width: 32px; height: 1px;
-            background: var(--terra);
-        }
+        .hero-tag::before { content: ''; width: 32px; height: 2px; background: var(--gold); }
         .hero h1 {
-            font-size: clamp(2.6rem, 6.4vw, 5.6rem);
-            line-height: 0.96;
-            letter-spacing: -0.035em;
-            color: var(--ink);
-            font-weight: 400;
-            margin-bottom: 30px;
-            font-variation-settings: "opsz" 144;
+            font-size: clamp(2.6rem, 6.2vw, 5.4rem); line-height: 0.98; letter-spacing: -0.03em;
+            color: var(--ink); font-weight: 500; margin-bottom: 28px; font-variation-settings: "opsz" 144, "SOFT" 40;
         }
-        .hero h1 .it {
-            font-style: italic;
-            font-weight: 400;
-            color: var(--terra);
-        }
-        .hero h1 .acute {
-            font-style: italic;
-        }
+        .hero h1 .it { font-style: italic; font-weight: 500; color: var(--plum); }
         .hero-lede {
-            font-family: 'Manrope', sans-serif;
-            font-size: 1.12rem;
-            color: var(--ink-soft);
-            line-height: 1.55;
-            max-width: 520px;
-            margin-bottom: 36px;
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.12rem; color: var(--ink-soft);
+            line-height: 1.58; max-width: 520px; margin-bottom: 34px;
         }
-        .hero-actions {
-            display: flex; align-items: baseline;
-            gap: 28px;
-            flex-wrap: wrap;
+        .hero-actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 11px;
+            background: var(--plum); color: var(--cream); border-radius: 100px;
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 600;
+            padding: 16px 28px; transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 8px 22px rgba(42, 30, 82, 0.18);
         }
-        .hero-call {
-            font-family: 'Fraunces', serif;
-            font-size: 2rem;
-            font-weight: 500;
-            color: var(--terra);
-            display: inline-flex; align-items: baseline; gap: 14px;
-            letter-spacing: -0.015em;
-            border-bottom: 2px solid var(--terra);
-            padding-bottom: 4px;
-            transition: color 0.2s, border-color 0.2s;
+        .btn-primary:hover { background: var(--plum-deep); transform: translateY(-2px); box-shadow: 0 12px 28px rgba(42, 30, 82, 0.26); }
+        .btn-primary .ic { color: var(--gold); }
+        .btn-ghost {
+            display: inline-flex; align-items: center; gap: 9px;
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 600; color: var(--ink);
+            padding: 15px 8px; border-bottom: 2px solid var(--gold); transition: color 0.2s; border-radius: 0;
         }
-        .hero-call:hover { color: var(--terra-deep); border-color: var(--terra-deep); }
-        .hero-call .arrow {
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--ink-mute);
-            position: relative;
-            top: -4px;
-        }
-        .hero-req {
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--ink);
-            padding-bottom: 2px;
-            border-bottom: 1px solid var(--ink);
-            transition: color 0.2s, border-color 0.2s;
-        }
-        .hero-req:hover { color: var(--terra); border-color: var(--terra); }
+        .btn-ghost:hover { color: var(--plum); }
 
-        .hero-image {
-            position: relative;
-            align-self: stretch;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
+        .hero-image { position: relative; align-self: stretch; display: flex; flex-direction: column; justify-content: flex-end; }
+        .hero-image-inner { position: relative; overflow: hidden; }
+        .hero-image-inner img {
+            width: 100%; height: 100%; min-height: 540px; max-height: 720px;
+            object-fit: cover; object-position: center 24%; display: block;
         }
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            min-height: 540px;
-            max-height: 720px;
-            object-fit: cover;
-            object-position: center 16%;
-            display: block;
+        .hero-image::before {
+            content: ''; position: absolute; left: -22px; top: 40px; bottom: 64px; width: 60%;
+            background: var(--lilac); z-index: 0;
         }
+        .hero-image-inner { z-index: 1; }
         .hero-caption {
-            padding: 16px 0 0 24px;
-            display: flex; align-items: center; gap: 14px;
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.78rem;
-            color: var(--ink-soft);
-            letter-spacing: 0.04em;
-        }
-        .hero-caption .dot {
-            width: 4px; height: 4px; border-radius: 50%;
-            background: var(--ink-mute);
-            display: inline-block;
-        }
-
-        @media (max-width: 980px) {
-            .hero { padding-top: calc(var(--nav-h) + 32px); }
-            .hero-grid {
-                grid-template-columns: 1fr;
-                padding-left: 0;
-            }
-            .hero-text {
-                padding: 0 22px 36px;
-                order: 1;
-            }
-            .hero-image { order: 2; padding: 0 0 24px 22px; }
-            .hero-image img {
-                min-height: 360px;
-                max-height: 480px;
-                aspect-ratio: 3/4;
-            }
-            .hero-caption { padding: 14px 22px 0 22px; }
-            .hero h1 { font-size: clamp(2.4rem, 9vw, 3.8rem); }
-            .hero-call { font-size: 1.5rem; }
-        }
-
-        /* ========== TRUST LINE (quiet) ========== */
-        .quiet-trust {
-            padding: 26px 0;
-            border-top: 1px solid var(--hairline);
-            border-bottom: 1px solid var(--hairline);
-            margin-top: 64px;
-        }
-        .quiet-trust .inner {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px 32px;
-            justify-content: space-between;
-            align-items: center;
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.92rem;
-            color: var(--ink-soft);
-            font-weight: 500;
-        }
-        .quiet-trust .pt {
-            display: inline-flex; align-items: baseline; gap: 10px;
-        }
-        .quiet-trust .pt .num {
-            font-family: 'Fraunces', serif;
-            font-style: italic;
-            font-size: 1.05rem;
-            color: var(--terra);
-            font-weight: 500;
-        }
-        @media (max-width: 760px) {
-            .quiet-trust { margin-top: 36px; padding: 22px 0; }
-            .quiet-trust .inner { gap: 12px 0; flex-direction: column; align-items: flex-start; }
-        }
-
-        /* ========== SECTIONS GENERAL ========== */
-        section.spread { padding: 130px 0; }
-        @media (max-width: 760px) { section.spread { padding: 80px 0; } }
-
-        .spread-head {
-            margin-bottom: 72px;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 40px;
-            align-items: end;
-        }
-        .spread-head .label { color: var(--ink-soft); }
-        .spread-head h2 {
-            font-size: clamp(2rem, 4vw, 3.4rem);
-            line-height: 1.02;
-            letter-spacing: -0.028em;
-            color: var(--ink);
-        }
-        .spread-head h2 .it {
-            font-style: italic;
-            color: var(--terra);
-        }
-        @media (max-width: 760px) {
-            .spread-head { grid-template-columns: 1fr; gap: 18px; margin-bottom: 48px; }
-            .spread-head h2 { font-size: clamp(1.9rem, 7vw, 2.6rem); }
-        }
-
-        /* ========== ABOUT / PRACTICE ========== */
-        .practice { background: var(--chalk); }
-        .practice-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: flex-start;
-        }
-        .practice-quote {
-            font-family: 'Fraunces', serif;
-            font-style: italic;
-            font-weight: 400;
-            font-size: clamp(1.8rem, 3vw, 2.6rem);
-            line-height: 1.18;
-            letter-spacing: -0.015em;
-            color: var(--ink);
-            margin-bottom: 32px;
-            font-variation-settings: "opsz" 96;
-        }
-        .practice-quote::before {
-            content: '\201C';
-            color: var(--terra);
-            margin-right: 4px;
-        }
-        .practice-quote::after { content: '\201D'; color: var(--terra); margin-left: 2px; }
-        .practice-cite {
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: var(--ink-soft);
-            margin-bottom: 28px;
-            display: block;
-        }
-        .practice-prose p {
-            font-size: 1.05rem;
-            line-height: 1.66;
-            color: var(--ink-soft);
-            margin-bottom: 16px;
-            max-width: 520px;
-        }
-        .practice-prose .small-cap {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 700;
-            font-size: 0.74rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--ink);
-        }
-
-        .practice-photo {
-            position: relative;
-            padding: 22px 22px 0 0;
-        }
-        .practice-photo::before {
-            content: '';
-            position: absolute;
-            top: 0; right: 0;
-            width: 70%; height: 70%;
-            background: var(--sage-block);
-            z-index: 0;
-        }
-        .practice-photo img {
-            position: relative;
-            z-index: 1;
-            width: 100%;
-            aspect-ratio: 4/5;
-            object-fit: cover;
-            object-position: center 12%;
-            display: block;
-        }
-        .practice-photo .caption {
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.78rem;
-            color: var(--ink-soft);
-            margin-top: 14px;
-            letter-spacing: 0.04em;
+            padding: 16px 0 0 24px; display: flex; align-items: center; gap: 12px;
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.78rem; color: var(--ink-soft); letter-spacing: 0.03em;
             position: relative; z-index: 1;
         }
+        .hero-caption .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); display: inline-block; }
 
-        @media (max-width: 880px) {
-            .practice-grid { grid-template-columns: 1fr; gap: 56px; }
-            .practice-photo { padding: 18px 18px 0 0; max-width: 460px; }
-        }
-
-        /* ========== CARE / SERVICES - numbered editorial list ========== */
-        .care { border-top: 1px solid var(--hairline); }
-        .care-list {
-            display: flex; flex-direction: column;
-        }
-        .care-item {
-            display: grid;
-            grid-template-columns: 110px 1fr 1fr auto;
-            gap: 48px;
-            align-items: flex-start;
-            padding: 44px 0;
-            border-bottom: 1px solid var(--hairline);
-        }
-        .care-item:first-child { border-top: 1px solid var(--hairline); }
-        .care-num {
-            font-family: 'Fraunces', serif;
-            font-style: italic;
-            font-weight: 400;
-            font-size: 3.4rem;
-            line-height: 0.9;
-            color: var(--terra);
-            letter-spacing: -0.04em;
-            font-variation-settings: "opsz" 144;
-        }
-        .care-title {
-            font-family: 'Fraunces', serif;
-            font-size: 1.85rem;
-            font-weight: 500;
-            line-height: 1.08;
-            letter-spacing: -0.022em;
-            color: var(--ink);
-        }
-        .care-title .who {
-            display: block;
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--ink-soft);
-            margin-top: 10px;
-        }
-        .care-body p {
-            font-size: 1.02rem;
-            color: var(--ink-soft);
-            line-height: 1.62;
-            max-width: 420px;
-        }
-        .care-cta {
-            align-self: center;
-            white-space: nowrap;
-        }
         @media (max-width: 980px) {
-            .care-item {
-                grid-template-columns: 70px 1fr;
-                gap: 22px 28px;
-                padding: 36px 0;
-            }
-            .care-num { font-size: 2.4rem; }
-            .care-title { font-size: 1.55rem; }
-            .care-body { grid-column: 2; }
-            .care-cta { grid-column: 2; align-self: flex-start; margin-top: 8px; }
+            .hero { padding-top: calc(var(--nav-h) + 26px); }
+            .hero-grid { grid-template-columns: 1fr; padding-left: 0; }
+            .hero-text { padding: 0 22px 34px; order: 1; }
+            .hero-image { order: 2; padding: 0 22px 18px; }
+            .hero-image::before { left: 6px; top: 22px; bottom: 30px; width: 55%; }
+            .hero-image-inner img { min-height: 380px; max-height: 520px; aspect-ratio: 4/5; }
+            .hero-caption { padding: 12px 22px 0; }
+            .hero h1 { font-size: clamp(2.4rem, 9.5vw, 3.8rem); }
         }
 
-        /* ========== FIRST VISIT (three columns of prose) ========== */
-        .first-visit { background: var(--paper); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
-        .fv-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0;
+        /* ========== TRUST STRIP ========== */
+        .trust { padding: 26px 0; border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); margin-top: 60px; }
+        .trust .inner {
+            display: flex; flex-wrap: wrap; gap: 14px 32px; justify-content: space-between; align-items: center;
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.92rem; color: var(--ink-soft); font-weight: 500;
         }
-        .fv-col {
-            padding: 0 36px;
-            border-left: 1px solid var(--hairline);
+        .trust .pt { display: inline-flex; align-items: baseline; gap: 10px; }
+        .trust .pt .num { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.05rem; color: var(--gold-deep); font-weight: 600; }
+        @media (max-width: 760px) {
+            .trust { margin-top: 34px; padding: 22px 0; }
+            .trust .inner { gap: 13px 0; flex-direction: column; align-items: flex-start; }
         }
+
+        /* ========== SECTIONS ========== */
+        section.spread { padding: 122px 0; }
+        @media (max-width: 760px) { section.spread { padding: 76px 0; } }
+        .spread-head { margin-bottom: 68px; display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: end; }
+        .spread-head h2 { font-size: clamp(2rem, 4vw, 3.3rem); line-height: 1.04; letter-spacing: -0.025em; color: var(--ink); }
+        .spread-head h2 .it { font-style: italic; color: var(--plum); }
+        @media (max-width: 760px) {
+            .spread-head { grid-template-columns: 1fr; gap: 16px; margin-bottom: 44px; }
+            .spread-head h2 { font-size: clamp(1.9rem, 7vw, 2.5rem); }
+        }
+
+        /* ========== PRACTICE ========== */
+        .practice { background: var(--paper); }
+        .practice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: flex-start; }
+        .practice-quote {
+            font-family: 'Fraunces', serif; font-style: italic; font-weight: 400;
+            font-size: clamp(1.8rem, 3vw, 2.55rem); line-height: 1.2; letter-spacing: -0.012em;
+            color: var(--ink); margin-bottom: 30px;
+        }
+        .practice-quote::before { content: '\201C'; color: var(--gold); margin-right: 4px; }
+        .practice-quote::after { content: '\201D'; color: var(--gold); margin-left: 2px; }
+        .practice-cite {
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.76rem; font-weight: 700;
+            letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 28px; display: block;
+        }
+        .practice-prose p { font-size: 1.05rem; line-height: 1.68; color: var(--ink-soft); margin-bottom: 16px; max-width: 520px; }
+        .practice-prose .small-cap { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--plum); }
+        .practice-photo { position: relative; padding: 22px 0 0 22px; }
+        .practice-photo::before { content: ''; position: absolute; top: 0; left: 0; width: 64%; height: 64%; background: var(--lilac); z-index: 0; }
+        .practice-photo img { position: relative; z-index: 1; width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center 18%; display: block; }
+        .practice-photo .caption { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.78rem; color: var(--ink-soft); margin-top: 14px; letter-spacing: 0.03em; position: relative; z-index: 1; }
+        @media (max-width: 880px) {
+            .practice-grid { grid-template-columns: 1fr; gap: 52px; }
+            .practice-photo { padding: 18px 0 0 18px; max-width: 460px; }
+        }
+
+        /* ========== CARE ========== */
+        .care { background: var(--mist); }
+        .care-list { display: flex; flex-direction: column; }
+        .care-item { display: grid; grid-template-columns: 110px 1fr 1fr auto; gap: 48px; align-items: flex-start; padding: 44px 0; border-bottom: 1px solid var(--hairline); }
+        .care-item:first-child { border-top: 1px solid var(--hairline); }
+        .care-num { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; font-size: 3.4rem; line-height: 0.9; color: var(--gold); letter-spacing: -0.04em; }
+        .care-title { font-family: 'Fraunces', serif; font-size: 1.85rem; font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); }
+        .care-title .who { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--plum); margin-top: 10px; }
+        .care-body p { font-size: 1.02rem; color: var(--ink-soft); line-height: 1.62; max-width: 420px; }
+        .care-cta { align-self: center; white-space: nowrap; }
+        @media (max-width: 980px) {
+            .care-item { grid-template-columns: 64px 1fr; gap: 20px 26px; padding: 34px 0; }
+            .care-num { font-size: 2.3rem; }
+            .care-title { font-size: 1.5rem; }
+            .care-body { grid-column: 2; }
+            .care-cta { grid-column: 2; align-self: flex-start; margin-top: 6px; }
+        }
+
+        /* ========== FIRST VISIT ========== */
+        .first-visit { background: var(--paper); }
+        .fv-top { display: grid; grid-template-columns: 1.5fr 1fr; gap: 56px; align-items: end; margin-bottom: 56px; }
+        .fv-photo { overflow: hidden; }
+        .fv-photo img { width: 100%; aspect-ratio: 5/4; object-fit: cover; object-position: center 30%; }
+        .fv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+        .fv-col { padding: 0 36px; border-left: 1px solid var(--hairline); }
         .fv-col:first-child { padding-left: 0; border-left: none; }
         .fv-col:last-child { padding-right: 0; }
-        .fv-step {
-            font-family: 'Fraunces', serif;
-            font-style: italic;
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--terra);
-            margin-bottom: 10px;
-        }
-        .fv-col h3 {
-            font-size: 1.45rem;
-            margin-bottom: 14px;
-            color: var(--ink);
-            font-weight: 500;
-            letter-spacing: -0.02em;
-        }
-        .fv-col p {
-            font-size: 0.98rem;
-            color: var(--ink-soft);
-            line-height: 1.6;
-        }
+        .fv-step { font-family: 'Fraunces', serif; font-style: italic; font-size: 0.95rem; font-weight: 500; color: var(--gold-deep); margin-bottom: 10px; }
+        .fv-col h3 { font-size: 1.4rem; margin-bottom: 14px; color: var(--ink); font-weight: 500; letter-spacing: -0.018em; }
+        .fv-col p { font-size: 0.98rem; color: var(--ink-soft); line-height: 1.62; }
         @media (max-width: 880px) {
+            .fv-top { grid-template-columns: 1fr; gap: 32px; margin-bottom: 40px; }
             .fv-grid { grid-template-columns: 1fr; }
-            .fv-col {
-                padding: 32px 0;
-                border-left: none;
-                border-top: 1px solid var(--hairline);
-            }
+            .fv-col { padding: 30px 0; border-left: none; border-top: 1px solid var(--hairline); }
             .fv-col:first-child { border-top: none; padding-top: 0; }
             .fv-col:last-child { padding-bottom: 0; }
         }
 
-        /* ========== PROVIDERS - roster ========== */
-        .providers { background: var(--chalk); }
-        .provider-row {
-            display: grid;
-            grid-template-columns: 180px 1fr;
-            gap: 56px;
-            padding: 44px 0;
-            border-top: 1px solid var(--hairline);
-            align-items: flex-start;
-        }
+        /* ========== PROVIDERS ========== */
+        .providers { background: var(--mist); }
+        .provider-row { display: grid; grid-template-columns: 180px 1fr; gap: 56px; padding: 44px 0; border-top: 1px solid var(--hairline); align-items: flex-start; }
         .provider-row:last-of-type { border-bottom: 1px solid var(--hairline); }
-        .provider-portrait {
-            aspect-ratio: 4/5;
-            background: var(--chalk-edge);
-            overflow: hidden;
-        }
-        .provider-portrait img {
-            width: 100%; height: 100%;
-            object-fit: cover; object-position: center 8%;
-        }
-        .provider-meta {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 36px;
-            align-items: start;
-        }
-        .provider-name {
-            font-family: 'Fraunces', serif;
-            font-size: 2.1rem;
-            font-weight: 500;
-            line-height: 1.05;
-            letter-spacing: -0.025em;
-            color: var(--ink);
-            margin-bottom: 8px;
-        }
-        .provider-cred {
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.74rem;
-            font-weight: 700;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--ink-soft);
-            margin-bottom: 18px;
-        }
-        .provider-bio {
-            font-size: 1rem;
-            color: var(--ink-soft);
-            line-height: 1.62;
-        }
-        .provider-side {
-            display: flex; flex-direction: column; gap: 14px;
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.88rem;
-        }
-        .provider-side .lang {
-            font-family: 'Fraunces', serif;
-            font-style: italic;
-            font-size: 1.05rem;
-            color: var(--terra);
-        }
-        .provider-side .lang .small {
-            display: block;
-            font-family: 'Manrope', sans-serif;
-            font-style: normal;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: var(--ink-mute);
-            margin-top: 4px;
-        }
-        .provider-side .since {
-            color: var(--ink-soft);
-            font-weight: 500;
-        }
-        .provider-side .since strong {
-            font-family: 'Fraunces', serif;
-            font-style: italic;
-            font-weight: 500;
-            color: var(--ink);
-            font-size: 1.05rem;
-        }
+        .provider-portrait { aspect-ratio: 4/5; background: var(--lilac); overflow: hidden; }
+        .provider-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 12%; }
+        .provider-meta { display: grid; grid-template-columns: 2fr 1fr; gap: 36px; align-items: start; }
+        .provider-name { font-family: 'Fraunces', serif; font-size: 2.05rem; font-weight: 500; line-height: 1.06; letter-spacing: -0.022em; color: var(--ink); margin-bottom: 8px; }
+        .provider-cred { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--plum); margin-bottom: 18px; }
+        .provider-bio { font-size: 1rem; color: var(--ink-soft); line-height: 1.62; }
+        .provider-side { display: flex; flex-direction: column; gap: 14px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; }
+        .provider-side .lang { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.05rem; color: var(--plum); }
+        .provider-side .lang .small { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-style: normal; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-mute); margin-top: 4px; }
+        .provider-side .since { color: var(--ink-soft); font-weight: 500; }
+        .provider-side .since strong { font-family: 'Fraunces', serif; font-style: italic; font-weight: 600; color: var(--gold-deep); font-size: 1.1rem; }
         @media (max-width: 880px) {
-            .provider-row {
-                grid-template-columns: 120px 1fr;
-                gap: 24px;
-                padding: 32px 0;
-            }
-            .provider-meta {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
+            .provider-row { grid-template-columns: 120px 1fr; gap: 24px; padding: 32px 0; }
+            .provider-meta { grid-template-columns: 1fr; gap: 16px; }
             .provider-name { font-size: 1.5rem; }
             .provider-bio { font-size: 0.95rem; }
         }
         @media (max-width: 540px) {
-            .provider-row {
-                grid-template-columns: 1fr;
-                gap: 18px;
-            }
-            .provider-portrait { max-width: 200px; aspect-ratio: 4/5; }
+            .provider-row { grid-template-columns: 1fr; gap: 16px; }
+            .provider-portrait { max-width: 200px; }
         }
-        .providers-foot {
-            margin-top: 48px;
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            gap: 24px;
-            flex-wrap: wrap;
+        .providers-foot { margin-top: 46px; display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap; }
+        .providers-foot .note { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; color: var(--ink-soft); line-height: 1.55; max-width: 460px; }
+
+        /* ========== TESTIMONIALS (dark) ========== */
+        .voices { background: var(--plum-deep); color: var(--cream); padding: 116px 0; }
+        .voices .vhead { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 56px; }
+        .voices .vhead .ov { color: var(--gold); }
+        .voices .vhead h2 { color: var(--cream); font-size: clamp(1.9rem, 3.4vw, 2.9rem); letter-spacing: -0.025em; }
+        .voices .vhead h2 .it { font-style: italic; color: var(--gold); }
+        .voices-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        .voice {
+            background: rgba(244, 239, 230, 0.05); border: 1px solid var(--hairline-dark);
+            padding: 40px 38px; display: flex; flex-direction: column;
         }
-        .providers-foot .note {
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.95rem;
-            color: var(--ink-soft);
-            line-height: 1.55;
-            max-width: 460px;
+        .voice .stars { color: var(--gold); letter-spacing: 4px; font-size: 0.9rem; margin-bottom: 22px; }
+        .voice blockquote {
+            font-family: 'Fraunces', serif; font-style: italic; font-weight: 400;
+            font-size: 1.5rem; line-height: 1.34; color: var(--cream); letter-spacing: -0.01em; margin-bottom: 26px; flex: 1;
+        }
+        .voice .who { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(244, 239, 230, 0.7); }
+        .voice .who span { color: var(--gold); }
+        .voices-foot { margin-top: 40px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.92rem; color: rgba(244, 239, 230, 0.62); }
+        .voices-foot a { color: var(--gold); border-bottom: 1px solid rgba(216, 154, 40, 0.4); }
+        @media (max-width: 760px) {
+            .voices { padding: 76px 0; }
+            .voices-grid { grid-template-columns: 1fr; gap: 20px; }
+            .voice { padding: 30px 26px; }
+            .voice blockquote { font-size: 1.3rem; }
         }
 
-        /* ========== INSURANCE - one sentence + reveal ========== */
-        .insurance {
-            background: var(--paper);
-            border-top: 1px solid var(--hairline);
-            border-bottom: 1px solid var(--hairline);
-        }
-        .ins-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 56px;
-            align-items: start;
-        }
-        .ins-grid .label {
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--ink-soft);
-        }
-        .ins-body {
-            font-family: 'Fraunces', serif;
-            font-size: clamp(1.5rem, 2.4vw, 2.1rem);
-            line-height: 1.24;
-            letter-spacing: -0.018em;
-            color: var(--ink);
-            font-weight: 400;
-        }
-        .ins-body .terra { color: var(--terra); font-style: italic; }
-        .ins-list {
-            margin-top: 24px;
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.92rem;
-            color: var(--ink-soft);
-            line-height: 1.7;
-            max-width: 640px;
-        }
-        .ins-list .toggle {
-            font-family: 'Manrope', sans-serif;
-            font-weight: 600;
-            color: var(--terra);
-            border-bottom: 1px solid var(--terra);
-            cursor: pointer;
-            padding: 0;
-            font-size: 0.92rem;
-            transition: color 0.2s;
-        }
-        .ins-list .toggle:hover { color: var(--terra-deep); border-color: var(--terra-deep); }
-        .ins-list .all {
-            display: none;
-            margin-top: 16px;
-            padding-top: 16px;
-            border-top: 1px solid var(--hairline);
-        }
+        /* ========== INSURANCE ========== */
+        .insurance { background: var(--paper); }
+        .ins-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 56px; align-items: start; }
+        .ins-grid .label { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-deep); }
+        .ins-body { font-family: 'Fraunces', serif; font-size: clamp(1.5rem, 2.4vw, 2.1rem); line-height: 1.26; letter-spacing: -0.015em; color: var(--ink); font-weight: 400; }
+        .ins-body .hl { color: var(--plum); font-style: italic; }
+        .ins-list { margin-top: 24px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.92rem; color: var(--ink-soft); line-height: 1.7; max-width: 640px; }
+        .ins-list .toggle { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; color: var(--plum); border-bottom: 1.5px solid var(--plum); cursor: pointer; padding: 0; font-size: 0.92rem; transition: color 0.2s; }
+        .ins-list .toggle:hover { color: var(--plum-deep); border-color: var(--plum-deep); }
+        .ins-list .all { display: none; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--hairline); }
         .ins-list.expanded .all { display: block; }
         .ins-list.expanded .toggle { display: none; }
-        @media (max-width: 880px) {
-            .ins-grid { grid-template-columns: 1fr; gap: 24px; }
-            .ins-body { font-size: clamp(1.4rem, 5vw, 1.8rem); }
-        }
+        .ins-list .all a { color: var(--plum); border-bottom: 1px solid var(--plum); }
+        @media (max-width: 880px) { .ins-grid { grid-template-columns: 1fr; gap: 22px; } .ins-body { font-size: clamp(1.4rem, 5vw, 1.8rem); } }
 
-        /* ========== FAQ - hairline list ========== */
-        .faq { background: var(--chalk); }
+        /* ========== FAQ ========== */
+        .faq { background: var(--mist); }
         .faq-list { border-top: 1px solid var(--hairline); }
-        .faq-q {
-            border-bottom: 1px solid var(--hairline);
-        }
-        .faq-trigger {
-            width: 100%;
-            display: flex; align-items: baseline; justify-content: space-between;
-            gap: 32px;
-            padding: 28px 0;
-            font-family: 'Fraunces', serif;
-            font-size: clamp(1.15rem, 1.7vw, 1.4rem);
-            font-weight: 500;
-            line-height: 1.2;
-            letter-spacing: -0.018em;
-            color: var(--ink);
-            text-align: left;
-            transition: color 0.2s;
-        }
-        .faq-trigger:hover { color: var(--terra); }
-        .faq-trigger .plus {
-            font-family: 'Manrope', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 300;
-            color: var(--ink-soft);
-            transition: transform 0.3s, color 0.2s;
-            flex-shrink: 0;
-            line-height: 1;
-        }
-        .faq-q.open .faq-trigger { color: var(--terra); }
-        .faq-q.open .faq-trigger .plus {
-            transform: rotate(45deg);
-            color: var(--terra);
-        }
-        .faq-a {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
-        }
-        .faq-q.open .faq-a { max-height: 600px; }
-        .faq-a-inner {
-            padding: 0 0 28px;
-            font-size: 1rem;
-            color: var(--ink-soft);
-            line-height: 1.66;
-            max-width: 760px;
-        }
-        .faq-a-inner strong {
-            font-weight: 600;
-            color: var(--ink);
-        }
+        .faq-q { border-bottom: 1px solid var(--hairline); }
+        .faq-trigger { width: 100%; display: flex; align-items: baseline; justify-content: space-between; gap: 32px; padding: 28px 0; font-family: 'Fraunces', serif; font-size: clamp(1.15rem, 1.7vw, 1.4rem); font-weight: 500; line-height: 1.22; letter-spacing: -0.015em; color: var(--ink); text-align: left; transition: color 0.2s; }
+        .faq-trigger:hover { color: var(--plum); }
+        .faq-trigger .plus { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; font-weight: 300; color: var(--gold-deep); transition: transform 0.3s, color 0.2s; flex-shrink: 0; line-height: 1; }
+        .faq-q.open .faq-trigger { color: var(--plum); }
+        .faq-q.open .faq-trigger .plus { transform: rotate(45deg); color: var(--plum); }
+        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1); }
+        .faq-q.open .faq-a { max-height: 640px; }
+        .faq-a-inner { padding: 0 0 28px; font-size: 1rem; color: var(--ink-soft); line-height: 1.66; max-width: 760px; }
+        .faq-a-inner strong { font-weight: 600; color: var(--ink); }
 
-        /* ========== VISIT US (contact) ========== */
-        .visit { background: var(--paper); border-top: 1px solid var(--hairline); }
-        .visit-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: start;
-        }
-        .visit-info .block {
-            margin-bottom: 32px;
-        }
-        .visit-info .block .label {
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--ink-soft);
-            margin-bottom: 10px;
-        }
-        .visit-info .block .body {
-            font-family: 'Fraunces', serif;
-            font-size: 1.45rem;
-            line-height: 1.3;
-            color: var(--ink);
-            font-weight: 500;
-            letter-spacing: -0.018em;
-        }
-        .visit-info .block .body a {
-            color: var(--terra);
-            border-bottom: 1.5px solid var(--terra);
-            transition: color 0.2s, border-color 0.2s;
-        }
-        .visit-info .block .body a:hover { color: var(--terra-deep); border-color: var(--terra-deep); }
-        .visit-info .block .body .row {
-            display: flex;
-            justify-content: space-between;
-            gap: 18px;
-            padding: 8px 0;
-            border-bottom: 1px solid var(--hairline-soft);
-            font-size: 1.05rem;
-            font-weight: 400;
-        }
+        /* ========== VISIT ========== */
+        .visit { background: var(--paper); }
+        .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+        .visit-info .block { margin-bottom: 32px; }
+        .visit-info .block .label { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 10px; }
+        .visit-info .block .body { font-family: 'Fraunces', serif; font-size: 1.4rem; line-height: 1.32; color: var(--ink); font-weight: 500; letter-spacing: -0.015em; }
+        .visit-info .block .body a { color: var(--plum); border-bottom: 1.5px solid var(--plum); transition: color 0.2s, border-color 0.2s; }
+        .visit-info .block .body a:hover { color: var(--plum-deep); border-color: var(--plum-deep); }
+        .visit-info .block .body .row { display: flex; justify-content: space-between; gap: 18px; padding: 8px 0; border-bottom: 1px solid var(--hairline-soft); font-size: 1.05rem; font-weight: 400; }
         .visit-info .block .body .row:last-child { border-bottom: none; }
-        .visit-info .block .body .row .day {
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: var(--ink-soft);
-        }
-        .visit-info .block .body .row .time {
-            font-family: 'Fraunces', serif;
-            font-style: italic;
-            color: var(--ink);
-            font-size: 1.05rem;
-        }
-        .visit-info .map {
-            margin-top: 24px;
-            aspect-ratio: 16/9;
-            overflow: hidden;
-        }
-        .visit-info .map iframe {
-            width: 100%; height: 100%; border: 0;
-        }
+        .visit-info .block .body .row .day { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+        .visit-info .block .body .row .time { font-family: 'Fraunces', serif; font-style: italic; color: var(--ink); font-size: 1.05rem; }
+        .visit-info .map { margin-top: 24px; aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--hairline); }
+        .visit-info .map iframe { width: 100%; height: 100%; border: 0; }
 
-        .visit-form {
-            background: var(--chalk);
-            padding: 44px 44px 36px;
-            border: 1px solid var(--hairline);
-        }
-        .visit-form h3 {
-            font-size: 1.6rem;
-            margin-bottom: 6px;
-            color: var(--ink);
-            font-weight: 500;
-        }
-        .visit-form .intro {
-            font-size: 0.95rem;
-            color: var(--ink-soft);
-            margin-bottom: 32px;
-        }
-        .fld {
-            margin-bottom: 26px;
-            position: relative;
-        }
-        .fld label {
-            display: block;
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: var(--ink-soft);
-            margin-bottom: 10px;
-        }
-        .fld input,
-        .fld select,
-        .fld textarea {
-            width: 100%;
-            background: transparent;
-            border: none;
-            border-bottom: 1.5px solid var(--ink);
-            padding: 8px 0;
-            font-family: 'Manrope', sans-serif;
-            font-size: 1.02rem;
-            color: var(--ink);
-            border-radius: 0;
-            transition: border-color 0.2s;
-        }
-        .fld input:focus,
-        .fld select:focus,
-        .fld textarea:focus {
-            outline: none;
-            border-color: var(--terra);
-        }
-        .fld textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
-        .fld input::placeholder,
-        .fld textarea::placeholder { color: var(--ink-mute); }
-        .fld.bad input,
-        .fld.bad select,
-        .fld.bad textarea {
-            border-color: var(--terra);
-        }
-        .fld .err {
-            display: none;
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.78rem;
-            color: var(--terra);
-            font-weight: 600;
-            margin-top: 6px;
-        }
+        .visit-form { background: var(--mist); padding: 44px 44px 36px; border: 1px solid var(--hairline); }
+        .visit-form h3 { font-size: 1.6rem; margin-bottom: 6px; color: var(--ink); font-weight: 500; }
+        .visit-form .intro { font-size: 0.95rem; color: var(--ink-soft); margin-bottom: 30px; }
+        .fld { margin-bottom: 24px; position: relative; }
+        .fld label { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 10px; }
+        .fld input, .fld select, .fld textarea { width: 100%; background: transparent; border: none; border-bottom: 1.5px solid var(--ink); padding: 8px 0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.02rem; color: var(--ink); border-radius: 0; transition: border-color 0.2s; }
+        .fld input:focus, .fld select:focus, .fld textarea:focus { outline: none; border-color: var(--plum); }
+        .fld textarea { resize: vertical; min-height: 80px; }
+        .fld input::placeholder, .fld textarea::placeholder { color: var(--ink-mute); }
+        .fld.bad input, .fld.bad select, .fld.bad textarea { border-color: var(--gold-deep); }
+        .fld .err { display: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.78rem; color: var(--gold-deep); font-weight: 600; margin-top: 6px; }
         .fld.bad .err { display: block; }
-        .visit-submit {
-            display: inline-flex;
-            align-items: baseline;
-            gap: 14px;
-            background: var(--ink);
-            color: var(--chalk);
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.92rem;
-            font-weight: 600;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            padding: 18px 28px;
-            border: none;
-            cursor: pointer;
-            transition: background 0.2s, color 0.2s;
-            margin-top: 8px;
-        }
-        .visit-submit:hover {
-            background: var(--terra);
-            color: var(--paper);
-        }
-        .visit-submit .arrow {
-            position: relative; top: 1px;
-            transition: transform 0.22s;
-        }
+        .visit-submit { display: inline-flex; align-items: center; gap: 12px; background: var(--plum); color: var(--cream); border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 600; padding: 16px 30px; transition: background 0.2s, transform 0.2s; margin-top: 8px; }
+        .visit-submit:hover { background: var(--plum-deep); transform: translateY(-2px); }
+        .visit-submit .arrow { color: var(--gold); transition: transform 0.22s; }
         .visit-submit:hover .arrow { transform: translateX(4px); }
-        .visit-success {
-            display: none;
-            margin-top: 22px;
-            padding: 16px 20px;
-            background: var(--sage-block);
-            color: var(--ink);
-            font-family: 'Fraunces', serif;
-            font-style: italic;
-            font-size: 1.05rem;
-            border-left: 3px solid var(--moss);
-        }
+        .visit-success { display: none; margin-top: 22px; padding: 16px 20px; background: var(--lilac); color: var(--ink); font-family: 'Fraunces', serif; font-style: italic; font-size: 1.05rem; border-left: 3px solid var(--plum); }
         .visit-success.show { display: block; }
-        .visit-note {
-            margin-top: 18px;
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.78rem;
-            color: var(--ink-mute);
-        }
-        @media (max-width: 880px) {
-            .visit-grid { grid-template-columns: 1fr; gap: 56px; }
-            .visit-form { padding: 32px 26px; }
-        }
+        .visit-note { margin-top: 18px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.78rem; color: var(--ink-mute); }
+        @media (max-width: 880px) { .visit-grid { grid-template-columns: 1fr; gap: 52px; } .visit-form { padding: 32px 24px; } }
 
         /* ========== FOOTER ========== */
-        footer.foot {
-            background: var(--umber);
-            color: rgba(245, 239, 226, 0.78);
-            padding: 90px 0 36px;
-            border-top: 1px solid var(--umber-edge);
-        }
-        .foot-grid {
-            display: grid;
-            grid-template-columns: 1.4fr 1fr 1fr;
-            gap: 56px;
-        }
-        .foot-brand .word {
-            display: flex; flex-direction: column;
-            margin-bottom: 22px;
-        }
-        .foot-brand .word .name {
-            font-family: 'Fraunces', serif;
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: var(--chalk);
-            letter-spacing: -0.018em;
-        }
-        .foot-brand .word .sub {
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--terra);
-            margin-top: 6px;
-        }
-        .foot-brand p {
-            max-width: 360px;
-            font-size: 0.95rem;
-            color: rgba(245, 239, 226, 0.7);
-            line-height: 1.6;
-            margin-bottom: 26px;
-        }
-        .foot-social {
-            display: flex; gap: 22px;
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--chalk);
-        }
-        .foot-social a {
-            color: rgba(245, 239, 226, 0.7);
-            border-bottom: 1px solid transparent;
-            padding-bottom: 2px;
-            transition: color 0.2s, border-color 0.2s;
-        }
-        .foot-social a:hover {
-            color: var(--terra);
-            border-color: var(--terra);
-        }
-
-        .foot-col h4 {
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--chalk);
-            margin-bottom: 18px;
-        }
+        footer.foot { background: var(--plum-deep); color: rgba(244, 239, 230, 0.78); padding: 88px 0 34px; }
+        .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 56px; }
+        .foot-brand .word { display: flex; flex-direction: column; margin-bottom: 20px; }
+        .foot-brand .word .name { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; color: var(--cream); letter-spacing: -0.015em; }
+        .foot-brand .word .sub { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-top: 6px; }
+        .foot-brand p { max-width: 360px; font-size: 0.95rem; color: rgba(244, 239, 230, 0.7); line-height: 1.62; margin-bottom: 24px; }
+        .foot-social { display: flex; gap: 22px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; font-weight: 600; }
+        .foot-social a { color: rgba(244, 239, 230, 0.7); border-bottom: 1px solid transparent; padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+        .foot-social a:hover { color: var(--gold); border-color: var(--gold); }
+        .foot-col h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream); margin-bottom: 18px; }
         .foot-col ul { list-style: none; }
         .foot-col li { margin-bottom: 10px; font-size: 0.93rem; }
-        .foot-col a {
-            color: rgba(245, 239, 226, 0.7);
-            transition: color 0.2s;
-        }
-        .foot-col a:hover { color: var(--terra); }
-        .foot-col address {
-            font-style: normal;
-            font-size: 0.95rem;
-            color: rgba(245, 239, 226, 0.7);
-            line-height: 1.65;
-        }
-        .foot-col address strong {
-            color: var(--chalk);
-            display: block;
-            margin-bottom: 4px;
-            font-family: 'Fraunces', serif;
-            font-style: italic;
-            font-size: 1.05rem;
-            font-weight: 500;
-        }
-        .foot-col address a {
-            color: var(--terra);
-            border-bottom: 1px solid rgba(184, 74, 40, 0.3);
-        }
-        .foot-bottom {
-            margin-top: 72px;
-            padding-top: 24px;
-            border-top: 1px solid var(--hairline-dark);
-            display: flex; justify-content: space-between; align-items: center;
-            gap: 18px;
-            flex-wrap: wrap;
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.78rem;
-            color: rgba(245, 239, 226, 0.55);
-        }
+        .foot-col a { color: rgba(244, 239, 230, 0.7); transition: color 0.2s; }
+        .foot-col a:hover { color: var(--gold); }
+        .foot-col address { font-style: normal; font-size: 0.95rem; color: rgba(244, 239, 230, 0.7); line-height: 1.66; }
+        .foot-col address strong { color: var(--cream); display: block; margin-bottom: 4px; font-family: 'Fraunces', serif; font-style: italic; font-size: 1.05rem; font-weight: 500; }
+        .foot-col address a { color: var(--gold); border-bottom: 1px solid rgba(216, 154, 40, 0.3); }
+        .foot-bottom { margin-top: 70px; padding-top: 24px; border-top: 1px solid var(--hairline-dark); display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.78rem; color: rgba(244, 239, 230, 0.55); }
         @media (max-width: 880px) {
-            .foot-grid { grid-template-columns: 1fr; gap: 44px; }
-            footer.foot { padding: 64px 0 32px; }
+            .foot-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .foot-brand { grid-column: 1 / -1; }
+            footer.foot { padding: 62px 0 30px; }
         }
+        @media (max-width: 520px) { .foot-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -1293,9 +550,12 @@
 <!-- ========== NAV ========== -->
 <nav class="bar">
     <div class="bar-row">
-        <a href="#top" class="bar-word" aria-label="Sahara Medical Institute home">
-            <span class="name">Sahara Medical Institute</span>
-            <span class="sub">Pediatrics · Las Vegas · 2007</span>
+        <a href="#top" class="bar-logo" aria-label="Sahara Medical Institute home">
+            <img src="assets/logo-mark.png" alt="Sahara Medical Institute logo">
+            <span class="word">
+                <span class="name">Sahara Medical Institute</span>
+                <span class="sub">Pediatrics · Las Vegas · 2007</span>
+            </span>
         </a>
         <div class="bar-links">
             <a href="#practice">Practice</a>
@@ -1306,15 +566,13 @@
             <a href="#visit">Visit</a>
         </div>
         <div class="bar-right">
-            <button class="bar-lang desk" id="langToggleDesk" type="button">
-                <span data-lang-label>Español</span>
-            </button>
-            <a href="tel:+17023311700" class="bar-phone desk">
+            <button class="bar-lang desk" id="langToggleDesk" type="button"><span data-lang-label>Español</span></button>
+            <a href="tel:+17023311700" class="bar-cta desk">
                 <span class="dot" aria-hidden="true"></span>
                 (702) 331-1700
             </a>
             <a href="tel:+17023311700" class="bar-mobile-call" aria-label="Call (702) 331-1700">
-                <span class="num">(702) 331-1700</span>
+                <span class="ic" aria-hidden="true">&#9742;</span> Call
             </a>
             <button class="bar-burger" id="menuBtn" aria-label="Open menu" aria-expanded="false">
                 <span>Menu</span>
@@ -1325,6 +583,7 @@
 </nav>
 
 <aside class="sheet" id="sheet" aria-label="Mobile navigation">
+    <button class="sheet-close" id="sheetClose" type="button">Close <span aria-hidden="true">&times;</span></button>
     <div class="sheet-links">
         <a href="#practice" data-sheet-link>Practice</a>
         <a href="#care" data-sheet-link>Care</a>
@@ -1334,10 +593,8 @@
         <a href="#visit" data-sheet-link>Visit</a>
     </div>
     <div class="sheet-foot">
-        <a href="tel:+17023311700" class="phone" data-sheet-link>(702) 331-1700</a>
-        <div class="lang">
-            Hablamos español. <span id="langToggleSheet" data-lang-label>Cambiar idioma</span>
-        </div>
+        <a href="tel:+17023311700" class="phone" data-sheet-link><span class="ic" aria-hidden="true">&#9742;</span> (702) 331-1700</a>
+        <div class="lang">Hablamos español. <span id="langToggleSheet" data-lang-label>Cambiar idioma</span></div>
     </div>
 </aside>
 
@@ -1346,30 +603,29 @@
     <div class="hero-grid">
         <div class="hero-text">
             <div class="hero-tag">West Las Vegas · Since 2007</div>
-            <h1>Pediatric care,<br><span class="it">biling<span class="acute">ü</span>e</span>.</h1>
+            <h1>Pediatric care,<br><span class="it">bilingüe</span>.</h1>
             <p class="hero-lede">A family pediatric practice on West Sahara Avenue. Spanish spoken every day. Newborns through age 21. Walk-ins for sick visits. The same four providers your neighbors call when something is off.</p>
             <div class="hero-actions">
-                <a href="tel:+17023311700" class="hero-call">
-                    (702) 331-1700
-                    <span class="arrow">Call →</span>
-                </a>
-                <a href="#visit" class="hero-req">Request a visit</a>
+                <a href="tel:+17023311700" class="btn-primary"><span class="ic" aria-hidden="true">&#9742;</span> Call (702) 331-1700</a>
+                <a href="#visit" class="btn-ghost">Request a visit</a>
             </div>
         </div>
         <div class="hero-image">
-            <img src="assets/dr-peraza-portrait.png" alt="Dr. Francisco Peraza, founding pediatrician at Sahara Medical Institute in West Las Vegas">
+            <div class="hero-image-inner">
+                <img src="assets/hero-kids.jpg" alt="Children playing outdoors in the Las Vegas sun, cared for by Sahara Medical Institute pediatrics">
+            </div>
             <div class="hero-caption">
-                <span>Dr. Francisco Peraza, MD</span>
+                <span>Caring for Las Vegas kids</span>
                 <span class="dot" aria-hidden="true"></span>
-                <span class="span-it">Founder, since 2007</span>
+                <span>Newborn through age 21</span>
             </div>
         </div>
     </div>
 
     <div class="frame">
-        <div class="quiet-trust">
+        <div class="trust">
             <div class="inner">
-                <span class="pt"><span class="num">01</span> Bilingual care</span>
+                <span class="pt"><span class="num">01</span> Bilingual care, every day</span>
                 <span class="pt"><span class="num">02</span> Newborns through age 21</span>
                 <span class="pt"><span class="num">03</span> Walk-ins for sick visits</span>
                 <span class="pt"><span class="num">04</span> 16 insurance plans accepted</span>
@@ -1386,13 +642,13 @@
                 <p class="practice-quote">The parent in the room should never feel translated.</p>
                 <span class="practice-cite">Dr. Francisco Peraza, founder</span>
                 <div class="practice-prose">
-                    <p>Dr. Peraza opened Sahara Medical Institute in 2007 after years as a First-Degree Pediatric Specialist in Havana and a Nevada license earned the same year. He built the practice around one idea: every conversation about a fever, a feeding question, a vaccine schedule, or a behavioral concern happens in the language that family thinks in.</p>
-                    <p><span class="small-cap">Nineteen years on</span>, the practice is four providers strong, accepting newborns and new patients, and still on West Sahara Avenue. Walk-ins for sick visits, telemedicine when you can't leave the house, and a team that learned this from Dr. Peraza first: take the extra ten minutes, explain it again, write it down if it helps.</p>
+                    <p>Dr. Peraza earned his medical degree at the University of Havana in 1991 and became a First-Degree Pediatric Specialist before earning his Nevada license in 2007. The same year, he opened Sahara Medical Institute around one idea: every conversation about a fever, a feeding question, a vaccine schedule, or a behavioral concern should happen in the language that family thinks in.</p>
+                    <p><span class="small-cap">Nearly two decades on</span>, the practice is four providers strong, accepting newborns and new patients, and still on West Sahara Avenue. Walk-ins for sick visits, telemedicine when you can't leave the house, and a team that learned this from Dr. Peraza first: take the extra ten minutes, explain it again, write it down if it helps.</p>
                 </div>
             </div>
             <div class="practice-photo">
-                <img src="assets/dr-peraza.jpg" alt="Dr. Francisco Peraza, founder of Sahara Medical Institute on West Sahara Avenue in Las Vegas">
-                <div class="caption">Founder · West Sahara Avenue · 2007 – today</div>
+                <img src="assets/founder-office.jpg" alt="Dr. Francisco Peraza, founder of Sahara Medical Institute, in his West Las Vegas office">
+                <div class="caption">Dr. Francisco Peraza, MD · Founder · West Sahara Avenue, since 2007</div>
             </div>
         </div>
     </div>
@@ -1402,51 +658,27 @@
 <section class="spread care" id="care">
     <div class="frame">
         <div class="spread-head">
-            <div class="label overline">Care we offer</div>
+            <div class="overline">Care we offer</div>
             <h2>Three doors into the <span class="it">same</span> practice.</h2>
         </div>
-
         <div class="care-list">
             <div class="care-item">
                 <div class="care-num">01</div>
-                <div>
-                    <div class="care-title">
-                        Well-child visits
-                        <span class="who">Newborn through age 21</span>
-                    </div>
-                </div>
-                <div class="care-body">
-                    <p>Scheduled checkups following the AAP visit schedule. We track growth, milestones, immunizations, school and sports physicals, and answer the questions you've been writing down all month.</p>
-                </div>
-                <a href="#visit" class="care-cta link-arrow">Schedule <span class="a">→</span></a>
+                <div><div class="care-title">Well-child visits<span class="who">Newborn through age 21</span></div></div>
+                <div class="care-body"><p>Scheduled checkups following the AAP visit schedule. We track growth, milestones, immunizations, school and sports physicals, and answer the questions you've been writing down all month.</p></div>
+                <a href="#visit" class="care-cta link-arrow">Schedule <span class="a">&rarr;</span></a>
             </div>
-
             <div class="care-item">
                 <div class="care-num">02</div>
-                <div>
-                    <div class="care-title">
-                        Sick visits &amp; walk-ins
-                        <span class="who">Same day, first-come, first-served</span>
-                    </div>
-                </div>
-                <div class="care-body">
-                    <p>If your child is sick today, walk in today. We accept walk-ins until daily capacity is reached. You'll see the first available provider, or schedule with a specific one if you'd rather. Fevers, coughs, ear infections, rashes, stomach bugs, minor injuries.</p>
-                </div>
-                <a href="tel:+17023311700" class="care-cta link-arrow">Call ahead <span class="a">→</span></a>
+                <div><div class="care-title">Sick visits &amp; walk-ins<span class="who">Same day, first-come, first-served</span></div></div>
+                <div class="care-body"><p>If your child is sick today, walk in today. We accept walk-ins until daily capacity is reached. You'll see the first available provider, or schedule with a specific one if you'd rather. Fevers, coughs, ear infections, rashes, stomach bugs, minor injuries.</p></div>
+                <a href="tel:+17023311700" class="care-cta link-arrow">Call ahead <span class="a">&rarr;</span></a>
             </div>
-
             <div class="care-item">
                 <div class="care-num">03</div>
-                <div>
-                    <div class="care-title">
-                        Telemedicine &amp; specialty
-                        <span class="who">Video visits + ongoing care plans</span>
-                    </div>
-                </div>
-                <div class="care-body">
-                    <p>Video visits with Dr. Peraza when the office trip isn't worth it. Ongoing care plans for ADHD evaluations, acid reflux, obesity counseling, sports physicals, vaccinations, and circumcision.</p>
-                </div>
-                <a href="https://forms.gle/v9fevzwfTKpSzt858" target="_blank" rel="noopener" class="care-cta link-arrow">Request video <span class="a">→</span></a>
+                <div><div class="care-title">Telemedicine &amp; specialty<span class="who">Video visits + ongoing care plans</span></div></div>
+                <div class="care-body"><p>Video visits with Dr. Peraza when the office trip isn't worth it. Ongoing care plans for ADHD evaluations, acid reflux, obesity counseling, sports physicals, vaccinations, and circumcision.</p></div>
+                <a href="https://forms.gle/v9fevzwfTKpSzt858" target="_blank" rel="noopener" class="care-cta link-arrow">Request video <span class="a">&rarr;</span></a>
             </div>
         </div>
     </div>
@@ -1455,11 +687,15 @@
 <!-- ========== FIRST VISIT ========== -->
 <section class="spread first-visit" id="first-visit">
     <div class="frame">
-        <div class="spread-head">
-            <div class="label overline">Your first visit</div>
-            <h2>What it looks like, <span class="it">start to finish</span>.</h2>
+        <div class="fv-top">
+            <div class="spread-head" style="margin-bottom:0;">
+                <div class="overline">Your first visit</div>
+                <h2>What it looks like, <span class="it">start to finish</span>.</h2>
+            </div>
+            <div class="fv-photo">
+                <img src="assets/care-highfive.jpg" alt="A parent and child sharing a high-five with their pediatrician during a well-child visit">
+            </div>
         </div>
-
         <div class="fv-grid">
             <div class="fv-col">
                 <div class="fv-step">Before you come in</div>
@@ -1484,31 +720,27 @@
 <section class="spread providers" id="providers">
     <div class="frame">
         <div class="spread-head">
-            <div class="label overline">Providers</div>
+            <div class="overline">Providers</div>
             <h2>Four people. <span class="it">One office.</span></h2>
         </div>
 
         <div class="provider-row">
-            <div class="provider-portrait">
-                <img src="assets/dr-peraza-portrait.png" alt="Dr. Francisco Peraza, MD, founder of Sahara Medical Institute">
-            </div>
+            <div class="provider-portrait"><img src="assets/provider-peraza.jpg" alt="Dr. Francisco Peraza, MD, founder of Sahara Medical Institute"></div>
             <div class="provider-meta">
                 <div>
                     <div class="provider-name">Dr. Francisco Peraza</div>
                     <div class="provider-cred">MD · Founder</div>
-                    <p class="provider-bio">Founded the practice in 2007. Trained at Instituto Superior de Ciencias Médicas in Havana with First-Degree Pediatric Specialist credentials. Nevada-licensed since 2007. Sees newborns through teens, and offers telemedicine visits.</p>
+                    <p class="provider-bio">Founded the practice in 2007 and still leads it today, with more than 20 years caring for Las Vegas families. Earned his medical degree at the University of Havana and trained as a First-Degree Pediatric Specialist. Sees newborns through teens, and offers telemedicine visits.</p>
                 </div>
                 <div class="provider-side">
                     <div class="lang">English · Español<span class="small">Native bilingual</span></div>
-                    <div class="since"><strong>19</strong> years here</div>
+                    <div class="since"><strong>Since 2007</strong> founder</div>
                 </div>
             </div>
         </div>
 
         <div class="provider-row">
-            <div class="provider-portrait">
-                <img src="assets/katelyn-heck.png" alt="Katelyn E. Heck, RN, MSN, CRNP-PNP, board-certified pediatric nurse practitioner">
-            </div>
+            <div class="provider-portrait"><img src="assets/provider-katelyn.jpg" alt="Katelyn E. Heck, RN, MSN, CRNP-PNP, board-certified pediatric nurse practitioner"></div>
             <div class="provider-meta">
                 <div>
                     <div class="provider-name">Katelyn E. Heck</div>
@@ -1517,32 +749,28 @@
                 </div>
                 <div class="provider-side">
                     <div class="lang">English · Español<span class="small">Fluent</span></div>
-                    <div class="since"><strong>4</strong> years here</div>
+                    <div class="since"><strong>14 yrs</strong> in pediatrics</div>
                 </div>
             </div>
         </div>
 
         <div class="provider-row">
-            <div class="provider-portrait">
-                <img src="assets/dr-mendoza.png" alt="Dr. Marlon A. Mendoza, MD, pediatrician at Sahara Medical Institute">
-            </div>
+            <div class="provider-portrait"><img src="assets/provider-mendoza.jpg" alt="Dr. Marlon A. Mendoza, MD, pediatrician at Sahara Medical Institute"></div>
             <div class="provider-meta">
                 <div>
                     <div class="provider-name">Dr. Marlon A. Mendoza</div>
                     <div class="provider-cred">MD · Pediatrics</div>
-                    <p class="provider-bio">UNLV undergrad, University of Nevada School of Medicine, pediatric residency completed in Las Vegas. Twenty-two years as a pediatrician. Father of six. Volunteered on medical missions in Honduras and El Salvador.</p>
+                    <p class="provider-bio">UNLV undergrad, University of Nevada School of Medicine, pediatric residency completed in Las Vegas. Nearly 22 years as a pediatrician. Father of six. Volunteered on medical missions in Honduras and El Salvador.</p>
                 </div>
                 <div class="provider-side">
                     <div class="lang">English<span class="small">Primary</span></div>
-                    <div class="since"><strong>22</strong> years practicing</div>
+                    <div class="since"><strong>22 yrs</strong> a pediatrician</div>
                 </div>
             </div>
         </div>
 
         <div class="provider-row">
-            <div class="provider-portrait">
-                <img src="assets/nichole-fernandez.jpg" alt="Nichole Fernandez, APRN, FNP-C, family nurse practitioner at Sahara Medical Institute">
-            </div>
+            <div class="provider-portrait"><img src="assets/provider-nichole.jpg" alt="Nichole Fernandez, APRN, FNP-C, family nurse practitioner at Sahara Medical Institute"></div>
             <div class="provider-meta">
                 <div>
                     <div class="provider-name">Nichole Fernandez</div>
@@ -1558,8 +786,31 @@
 
         <div class="providers-foot">
             <p class="note">All four providers see well-child visits and sick walk-ins. Two are fluent in Spanish. If you'd like a specific provider, ask for them by name when you call.</p>
-            <a href="tel:+17023311700" class="link-arrow">Call to schedule <span class="a">→</span></a>
+            <a href="tel:+17023311700" class="link-arrow">Call to schedule <span class="a">&rarr;</span></a>
         </div>
+    </div>
+</section>
+
+<!-- ========== VOICES ========== -->
+<section class="voices" id="voices">
+    <div class="frame">
+        <div class="vhead">
+            <div class="overline ov">From Las Vegas parents</div>
+            <h2>Why families <span class="it">stay</span>.</h2>
+        </div>
+        <div class="voices-grid">
+            <div class="voice">
+                <div class="stars" aria-label="Five out of five stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+                <blockquote>So, I can say my children's pediatrician is a great doctor. I recommend Dr. Francisco Peraza.</blockquote>
+                <div class="who">Lupita G. <span>·</span> Las Vegas, NV</div>
+            </div>
+            <div class="voice">
+                <div class="stars" aria-label="Five out of five stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+                <blockquote>The best pediatrician. I recommend them, they help you with all your questions about the health of your children.</blockquote>
+                <div class="who">Ana C. <span>·</span> Las Vegas, NV</div>
+            </div>
+        </div>
+        <p class="voices-foot">More reviews from local families on <a href="https://www.yelp.com/biz/sahara-medical-institute-las-vegas" target="_blank" rel="noopener">Yelp</a> and <a href="https://www.facebook.com/SaharaMedicalinstitute" target="_blank" rel="noopener">Facebook</a>.</p>
     </div>
 </section>
 
@@ -1569,13 +820,11 @@
         <div class="ins-grid">
             <div class="label">Insurance</div>
             <div>
-                <p class="ins-body">
-                    In-network with sixteen plans, including <span class="terra">Aetna, Cigna, Anthem Blue Cross, United Healthcare, Health Plan of Nevada, Molina, TriCare, UFCW,</span> and the <span class="terra">Culinary Health Fund</span>.
-                </p>
+                <p class="ins-body">In-network with sixteen plans, including <span class="hl">Aetna, Cigna, Anthem Blue Cross, United Healthcare, Health Plan of Nevada, Molina, TriCare, UFCW,</span> and the <span class="hl">Culinary Health Fund</span>.</p>
                 <div class="ins-list" id="insList">
                     Don't see yours? <button class="toggle" type="button" id="insToggle">View all sixteen</button>
                     <div class="all">
-                        Aetna, Anthem Blue Cross, Beech Street, Cigna, Culinary Health Fund, Health Plan of Nevada, HealthScope Benefits, Molina Healthcare, MultiPlan, National Brotherhood, Silver Summit, SouthWest Service Administrators, TriCare, UFCW, UMR, United Healthcare. If yours isn't here, <a href="tel:+17023311700" style="color: var(--terra); border-bottom: 1px solid var(--terra);">call the front desk</a> and we'll verify in a few minutes.
+                        Aetna, Anthem Blue Cross, Beech Street, Cigna, Culinary Health Fund, Health Plan of Nevada, HealthScope Benefits, Molina Healthcare, MultiPlan, National Brotherhood, Silver Summit, SouthWest Service Administrators, TriCare, UFCW, UMR, United Healthcare. If yours isn't here, <a href="tel:+17023311700">call the front desk</a> and we'll verify in a few minutes.
                     </div>
                 </div>
             </div>
@@ -1587,187 +836,97 @@
 <section class="spread faq" id="faq">
     <div class="frame">
         <div class="spread-head">
-            <div class="label overline">Parent questions</div>
+            <div class="overline">Parent questions</div>
             <h2>The things <span class="it">new families</span> ask us first.</h2>
         </div>
-
         <div class="faq-list">
             <div class="faq-q">
-                <button class="faq-trigger" type="button" aria-expanded="false">
-                    <span>Do I need an appointment, or can I walk in?</span>
-                    <span class="plus">+</span>
-                </button>
-                <div class="faq-a">
-                    <div class="faq-a-inner">
-                        <strong>Sick visits:</strong> walk in any weekday. We accept walk-ins until daily capacity is reached, first-come, first-served. You'll see the first available provider. <strong>Well-child visits, sports physicals, and follow-ups:</strong> please call and schedule.
-                    </div>
-                </div>
+                <button class="faq-trigger" type="button" aria-expanded="false"><span>Do I need an appointment, or can I walk in?</span><span class="plus">+</span></button>
+                <div class="faq-a"><div class="faq-a-inner"><strong>Sick visits:</strong> walk in any weekday. We accept walk-ins until daily capacity is reached, first-come, first-served. You'll see the first available provider. <strong>Well-child visits, sports physicals, and follow-ups:</strong> please call and schedule.</div></div>
             </div>
-
             <div class="faq-q">
-                <button class="faq-trigger" type="button" aria-expanded="false">
-                    <span>¿Hablan Español? Do your providers speak Spanish?</span>
-                    <span class="plus">+</span>
-                </button>
-                <div class="faq-a">
-                    <div class="faq-a-inner">
-                        Sí. Dr. Francisco Peraza is a native Spanish speaker, trained in Havana. Katelyn Heck, our pediatric nurse practitioner, is fluent in Spanish. Front desk staff speaks Spanish too. Cuando llame, puede pedir hablar en español sin problema.
-                    </div>
-                </div>
+                <button class="faq-trigger" type="button" aria-expanded="false"><span>¿Hablan Español? Do your providers speak Spanish?</span><span class="plus">+</span></button>
+                <div class="faq-a"><div class="faq-a-inner">Sí. Dr. Francisco Peraza is a native Spanish speaker, trained in Havana. Katelyn Heck, our pediatric nurse practitioner, is fluent in Spanish. Front desk staff speaks Spanish too. Cuando llame, puede pedir hablar en español sin problema.</div></div>
             </div>
-
             <div class="faq-q">
-                <button class="faq-trigger" type="button" aria-expanded="false">
-                    <span>Are you accepting new patients and newborns?</span>
-                    <span class="plus">+</span>
-                </button>
-                <div class="faq-a">
-                    <div class="faq-a-inner">
-                        Yes to both. All four providers are accepting new patients, including newborns. Whether you're a new parent, new to Las Vegas, or switching from another practice, call to set up a first visit.
-                    </div>
-                </div>
+                <button class="faq-trigger" type="button" aria-expanded="false"><span>Are you accepting new patients and newborns?</span><span class="plus">+</span></button>
+                <div class="faq-a"><div class="faq-a-inner">Yes to both. All four providers are accepting new patients, including newborns. Whether you're a new parent, new to Las Vegas, or switching from another practice, call to set up a first visit.</div></div>
             </div>
-
             <div class="faq-q">
-                <button class="faq-trigger" type="button" aria-expanded="false">
-                    <span>What are your hours?</span>
-                    <span class="plus">+</span>
-                </button>
-                <div class="faq-a">
-                    <div class="faq-a-inner">
-                        <strong>Monday &amp; Wednesday:</strong> 10:00 AM to 6:30 PM. <strong>Tuesday, Thursday, Friday:</strong> 9:00 AM to 5:00 PM. Closed weekends. Emergencies, call 911. Si tiene una emergencia, llame al 911.
-                    </div>
-                </div>
+                <button class="faq-trigger" type="button" aria-expanded="false"><span>What are your hours?</span><span class="plus">+</span></button>
+                <div class="faq-a"><div class="faq-a-inner"><strong>Monday through Friday:</strong> 8:30 AM to 5:00 PM. Closed weekends. Walk-ins for sick visits are accepted daily until daily capacity is reached. Emergencies, call 911. Si tiene una emergencia, llame al 911.</div></div>
             </div>
-
             <div class="faq-q">
-                <button class="faq-trigger" type="button" aria-expanded="false">
-                    <span>How does the telemedicine visit work?</span>
-                    <span class="plus">+</span>
-                </button>
-                <div class="faq-a">
-                    <div class="faq-a-inner">
-                        Telemedicine visits are currently offered with Dr. Peraza. Use the request form linked from the Care section, and we'll schedule a video appointment, usually same-day or next-day for established patients. Good for follow-ups, prescription refills, behavioral concerns, and many sick visits where a physical exam isn't required.
-                    </div>
-                </div>
+                <button class="faq-trigger" type="button" aria-expanded="false"><span>How does the telemedicine visit work?</span><span class="plus">+</span></button>
+                <div class="faq-a"><div class="faq-a-inner">Telemedicine visits are currently offered with Dr. Peraza. Use the request form linked from the Care section, and we'll schedule a video appointment, usually same-day or next-day for established patients. Good for follow-ups, prescription refills, behavioral concerns, and many sick visits where a physical exam isn't required.</div></div>
             </div>
-
             <div class="faq-q">
-                <button class="faq-trigger" type="button" aria-expanded="false">
-                    <span>Do you take my insurance?</span>
-                    <span class="plus">+</span>
-                </button>
-                <div class="faq-a">
-                    <div class="faq-a-inner">
-                        We're in-network with sixteen plans including all major carriers (Aetna, Cigna, Anthem, United, UMR), Nevada locals (HPN, Silver Summit, Molina, Culinary Health Fund), and union/federal (TriCare, UFCW, SouthWest). If your plan isn't listed, call us anyway. We'll verify in a few minutes.
-                    </div>
-                </div>
+                <button class="faq-trigger" type="button" aria-expanded="false"><span>Do you take my insurance?</span><span class="plus">+</span></button>
+                <div class="faq-a"><div class="faq-a-inner">We're in-network with sixteen plans including all major carriers (Aetna, Cigna, Anthem, United, UMR), Nevada locals (HPN, Silver Summit, Molina, Culinary Health Fund), and union/federal (TriCare, UFCW, SouthWest). If your plan isn't listed, call us anyway. We'll verify in a few minutes.</div></div>
             </div>
-
             <div class="faq-q">
-                <button class="faq-trigger" type="button" aria-expanded="false">
-                    <span>What should I bring to my child's first visit?</span>
-                    <span class="plus">+</span>
-                </button>
-                <div class="faq-a">
-                    <div class="faq-a-inner">
-                        Bring your insurance card, a photo ID, and your child's immunization record if you have it. For a transfer from another pediatrician, request that your prior records be faxed to (702) 818-5013 ahead of time. That gives us a head start. Masks are required to enter the facility.
-                    </div>
-                </div>
+                <button class="faq-trigger" type="button" aria-expanded="false"><span>What should I bring to my child's first visit?</span><span class="plus">+</span></button>
+                <div class="faq-a"><div class="faq-a-inner">Bring your insurance card, a photo ID, and your child's immunization record if you have it. For a transfer from another pediatrician, request that your prior records be faxed to (702) 818-5013 ahead of time. That gives us a head start. Masks are required to enter the facility.</div></div>
             </div>
-
             <div class="faq-q">
-                <button class="faq-trigger" type="button" aria-expanded="false">
-                    <span>Do you do school and sports physicals?</span>
-                    <span class="plus">+</span>
-                </button>
-                <div class="faq-a">
-                    <div class="faq-a-inner">
-                        Yes. Sports physicals, school physicals, and camp physicals in one visit with the paperwork completed for you. Call ahead so we can confirm we have your insurance and last year's records.
-                    </div>
-                </div>
+                <button class="faq-trigger" type="button" aria-expanded="false"><span>Do you do school and sports physicals?</span><span class="plus">+</span></button>
+                <div class="faq-a"><div class="faq-a-inner">Yes. Sports physicals, school physicals, and camp physicals in one visit with the paperwork completed for you. Call ahead so we can confirm we have your insurance and last year's records.</div></div>
             </div>
-
             <div class="faq-q">
-                <button class="faq-trigger" type="button" aria-expanded="false">
-                    <span>I'm a nursing student. Do you offer a preceptorship?</span>
-                    <span class="plus">+</span>
-                </button>
-                <div class="faq-a">
-                    <div class="faq-a-inner">
-                        Yes, we host nursing preceptorship and externship placements year-round. Use the contact form with your full name, school name, hours needed, date range, résumé, and preferred provider if you have one.
-                    </div>
-                </div>
+                <button class="faq-trigger" type="button" aria-expanded="false"><span>I'm a nursing student. Do you offer a preceptorship?</span><span class="plus">+</span></button>
+                <div class="faq-a"><div class="faq-a-inner">Yes, we host nursing preceptorship and externship placements year-round. Use the contact form with your full name, school name, hours needed, date range, résumé, and preferred provider if you have one.</div></div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ========== VISIT US ========== -->
+<!-- ========== VISIT ========== -->
 <section class="spread visit" id="visit">
     <div class="frame">
         <div class="spread-head">
-            <div class="label overline">Visit</div>
+            <div class="overline">Visit</div>
             <h2>Request a visit, or <span class="it">just call us</span>.</h2>
         </div>
-
         <div class="visit-grid">
             <div class="visit-info">
                 <div class="block">
                     <div class="label">Office</div>
-                    <div class="body">
-                        Sahara Medical Institute<br>
-                        5781 W Sahara Ave #500<br>
-                        Las Vegas, NV 89146
-                    </div>
+                    <div class="body">Sahara Medical Institute<br>5781 W Sahara Ave #500<br>Las Vegas, NV 89146</div>
                 </div>
                 <div class="block">
                     <div class="label">Phone &amp; Fax</div>
-                    <div class="body">
-                        <a href="tel:+17023311700">(702) 331-1700</a><br>
-                        <span style="font-family:'Manrope',sans-serif; font-size: 0.95rem; color: var(--ink-soft); font-weight: 400;">Fax: (702) 818-5013</span>
-                    </div>
+                    <div class="body"><a href="tel:+17023311700">(702) 331-1700</a><br><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.95rem; color:var(--ink-soft); font-weight:400;">Fax: (702) 818-5013</span></div>
                 </div>
                 <div class="block">
                     <div class="label">Hours</div>
                     <div class="body">
-                        <div class="row"><span class="day">Mon &amp; Wed</span><span class="time">10 AM – 6:30 PM</span></div>
-                        <div class="row"><span class="day">Tue, Thu, Fri</span><span class="time">9 AM – 5 PM</span></div>
+                        <div class="row"><span class="day">Mon &ndash; Fri</span><span class="time">8:30 AM &ndash; 5:00 PM</span></div>
                         <div class="row"><span class="day">Sat &amp; Sun</span><span class="time">Closed</span></div>
                     </div>
                 </div>
                 <div class="map">
-                    <iframe
-                        src="https://www.google.com/maps?q=5781+W+Sahara+Ave+%23500+Las+Vegas+NV+89146&output=embed"
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        title="Sahara Medical Institute on Google Maps">
-                    </iframe>
+                    <iframe src="https://www.google.com/maps?q=5781+W+Sahara+Ave+%23500+Las+Vegas+NV+89146&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Sahara Medical Institute on Google Maps"></iframe>
                 </div>
             </div>
 
             <form class="visit-form" id="visitForm" novalidate>
                 <h3>Request a visit</h3>
                 <p class="intro">A real person from the front desk reaches back within one business day.</p>
-
                 <div class="fld" data-field="parentName">
                     <label for="parentName">Parent name</label>
                     <input type="text" id="parentName" name="parentName" placeholder="Your full name" required>
                     <div class="err">Please tell us your name so we know who's calling back.</div>
                 </div>
-
                 <div class="fld" data-field="phone">
                     <label for="phone">Phone</label>
                     <input type="tel" id="phone" name="phone" placeholder="(702) 555-1234" required>
                     <div class="err">A phone number helps us reach you faster than email.</div>
                 </div>
-
                 <div class="fld" data-field="email">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="you@email.com" required>
                     <div class="err">That email looks incomplete. Try something like you@email.com.</div>
                 </div>
-
                 <div class="fld" data-field="reason">
                     <label for="reason">What can we help with?</label>
                     <select id="reason" name="reason" required>
@@ -1783,19 +942,12 @@
                     </select>
                     <div class="err">Pick the closest match so we route you to the right person.</div>
                 </div>
-
                 <div class="fld" data-field="message">
                     <label for="message">Anything we should know?</label>
                     <textarea id="message" name="message" placeholder="Child's age, what's going on, preferred provider if you have one. Optional."></textarea>
                 </div>
-
-                <button type="submit" class="visit-submit">
-                    Send Request <span class="arrow">→</span>
-                </button>
-
-                <div class="visit-success" id="visitSuccess">
-                    Thanks. We got it. Someone from the front desk reaches back within one business day. If today is urgent, call us at (702) 331-1700.
-                </div>
+                <button type="submit" class="visit-submit">Send Request <span class="arrow" aria-hidden="true">&rarr;</span></button>
+                <div class="visit-success" id="visitSuccess">Thanks. We got it. Someone from the front desk reaches back within one business day. If today is urgent, call us at (702) 331-1700.</div>
                 <p class="visit-note">A note from us, only when it matters. We use this to book your visit and nothing else.</p>
             </form>
         </div>
@@ -1819,7 +971,6 @@
                     <a href="https://www.yelp.com/biz/sahara-medical-institute-las-vegas" target="_blank" rel="noopener">Yelp</a>
                 </div>
             </div>
-
             <div class="foot-col">
                 <h4>Site</h4>
                 <ul>
@@ -1832,7 +983,6 @@
                     <li><a href="https://blog.saharamedicalinstitute.com" target="_blank" rel="noopener">Blog</a></li>
                 </ul>
             </div>
-
             <div class="foot-col">
                 <h4>Visit</h4>
                 <address>
@@ -1840,11 +990,10 @@
                     5781 W Sahara Ave #500<br>
                     Las Vegas, NV 89146<br>
                     <a href="tel:+17023311700">(702) 331-1700</a><br>
-                    Mon &amp; Wed 10–6:30 · Tue, Thu, Fri 9–5
+                    Mon &ndash; Fri 8:30 AM &ndash; 5:00 PM
                 </address>
             </div>
         </div>
-
         <div class="foot-bottom">
             <span>© 2007 – 2026 Sahara Medical Institute. All rights reserved.</span>
             <span>Caring for Vegas kids since 2007.</span>
@@ -1855,37 +1004,18 @@
 <!-- ========== SCRIPTS ========== -->
 <script>
     if ('scrollRestoration' in history) history.scrollRestoration = 'auto';
-    if (window.location.hash) {
-        history.replaceState(null, '', window.location.pathname + window.location.search);
-    }
+    if (window.location.hash) history.replaceState(null, '', window.location.pathname + window.location.search);
 
-    // Mobile sheet menu
     const menuBtn = document.getElementById('menuBtn');
     const sheet = document.getElementById('sheet');
-    function openMenu() {
-        sheet.classList.add('open');
-        document.body.classList.add('menu-open');
-        document.body.style.overflow = 'hidden';
-        menuBtn.setAttribute('aria-expanded', 'true');
-    }
-    function closeMenu() {
-        sheet.classList.remove('open');
-        document.body.classList.remove('menu-open');
-        document.body.style.overflow = '';
-        menuBtn.setAttribute('aria-expanded', 'false');
-    }
-    menuBtn.addEventListener('click', () => {
-        if (sheet.classList.contains('open')) closeMenu();
-        else openMenu();
-    });
-    document.querySelectorAll('[data-sheet-link]').forEach(a => {
-        a.addEventListener('click', () => setTimeout(closeMenu, 60));
-    });
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape' && sheet.classList.contains('open')) closeMenu();
-    });
+    const sheetClose = document.getElementById('sheetClose');
+    function openMenu() { sheet.classList.add('open'); document.body.classList.add('menu-open'); document.body.style.overflow = 'hidden'; menuBtn.setAttribute('aria-expanded', 'true'); }
+    function closeMenu() { sheet.classList.remove('open'); document.body.classList.remove('menu-open'); document.body.style.overflow = ''; menuBtn.setAttribute('aria-expanded', 'false'); }
+    menuBtn.addEventListener('click', () => { sheet.classList.contains('open') ? closeMenu() : openMenu(); });
+    sheetClose.addEventListener('click', closeMenu);
+    document.querySelectorAll('[data-sheet-link]').forEach(a => a.addEventListener('click', () => setTimeout(closeMenu, 60)));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && sheet.classList.contains('open')) closeMenu(); });
 
-    // Smooth scroll + hash strip on anchors
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', (e) => {
             const href = a.getAttribute('href');
@@ -1894,62 +1024,44 @@
             if (target) {
                 e.preventDefault();
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                setTimeout(() => {
-                    history.replaceState(null, '', window.location.pathname + window.location.search);
-                }, 600);
+                setTimeout(() => history.replaceState(null, '', window.location.pathname + window.location.search), 600);
             }
         });
     });
 
-    // FAQ single-open accordion
     document.querySelectorAll('.faq-trigger').forEach(btn => {
         btn.addEventListener('click', () => {
             const q = btn.closest('.faq-q');
             const isOpen = q.classList.contains('open');
             document.querySelectorAll('.faq-q').forEach(x => x.classList.remove('open'));
             document.querySelectorAll('.faq-trigger').forEach(x => x.setAttribute('aria-expanded', 'false'));
-            if (!isOpen) {
-                q.classList.add('open');
-                btn.setAttribute('aria-expanded', 'true');
-            }
+            if (!isOpen) { q.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
         });
     });
 
-    // Insurance reveal
     const insList = document.getElementById('insList');
     const insToggle = document.getElementById('insToggle');
-    if (insToggle && insList) {
-        insToggle.addEventListener('click', () => insList.classList.add('expanded'));
-    }
+    if (insToggle && insList) insToggle.addEventListener('click', () => insList.classList.add('expanded'));
 
-    // Form validation
     (function() {
         const form = document.getElementById('visitForm');
         if (!form) return;
         const success = document.getElementById('visitSuccess');
-
         function checkField(fld) {
             const input = fld.querySelector('input, select, textarea');
-            if (!input || !input.hasAttribute('required')) {
-                fld.classList.remove('bad');
-                return true;
-            }
+            if (!input || !input.hasAttribute('required')) { fld.classList.remove('bad'); return true; }
             const v = input.value.trim();
             let ok = v.length > 0;
-            if (input.type === 'email' && ok) {
-                ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-            }
+            if (input.type === 'email' && ok) ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
             fld.classList.toggle('bad', !ok);
             return ok;
         }
-
         form.querySelectorAll('.fld').forEach(fld => {
             const inp = fld.querySelector('input, select, textarea');
             if (!inp) return;
             inp.addEventListener('input', () => { if (fld.classList.contains('bad')) checkField(fld); });
             inp.addEventListener('change', () => { if (fld.classList.contains('bad')) checkField(fld); });
         });
-
         form.addEventListener('submit', e => {
             e.preventDefault();
             let allOk = true;
@@ -1965,12 +1077,8 @@
         });
     })();
 
-    // Language toggle (placeholder full translation; v1 acknowledges)
     (function() {
-        const triggers = [
-            document.getElementById('langToggleDesk'),
-            document.getElementById('langToggleSheet')
-        ].filter(Boolean);
+        const triggers = [document.getElementById('langToggleDesk'), document.getElementById('langToggleSheet')].filter(Boolean);
         let es = false;
         triggers.forEach(t => {
             t.addEventListener('click', () => {
@@ -1981,9 +1089,7 @@
                     lbl.textContent = es ? 'English' : (tt.id === 'langToggleSheet' ? 'Cambiar idioma' : 'Español');
                 });
                 triggers.forEach(tt => tt.classList && tt.classList.toggle('active', es));
-                if (es) {
-                    alert('¡Hola! Nuestro equipo habla español. Por favor llame al (702) 331-1700 y pida hablar en español. La versión en español del sitio web estará disponible próximamente.');
-                }
+                if (es) alert('¡Hola! Nuestro equipo habla español. Por favor llame al (702) 331-1700 y pida hablar en español. La versión en español del sitio web estará disponible próximamente.');
             });
         });
     })();
@@ -1997,7 +1103,7 @@
   "name": "Sahara Medical Institute",
   "alternateName": "Vegas Pediatrics",
   "url": "https://www.saharamedicalinstitute.com/",
-  "logo": "https://crossfiber.github.io/sahara-medical-institute/assets/logo-mark.png",
+  "logo": "https://crossfiber.github.io/sahara-medical-institute/assets/logo-wordmark.png",
   "founder": { "@type": "Person", "name": "Francisco Peraza, MD" },
   "foundingDate": "2007",
   "description": "Bilingual pediatric primary care in West Las Vegas since 2007. Newborns through age 21, well-child visits, sick walk-ins, telemedicine, and sixteen insurance plans accepted.",
@@ -2024,7 +1130,7 @@
   "name": "Sahara Medical Institute",
   "alternateName": "Vegas Pediatrics",
   "url": "https://www.saharamedicalinstitute.com/",
-  "image": "https://crossfiber.github.io/sahara-medical-institute/assets/dr-peraza-portrait.png",
+  "image": "https://crossfiber.github.io/sahara-medical-institute/assets/og-share.jpg",
   "telephone": "+1-702-331-1700",
   "faxNumber": "+1-702-818-5013",
   "priceRange": "$$",
@@ -2039,8 +1145,7 @@
   },
   "geo": { "@type": "GeoCoordinates", "latitude": 36.1438, "longitude": -115.2203 },
   "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Wednesday"], "opens": "10:00", "closes": "18:30" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00" }
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:30", "closes": "17:00" }
   ],
   "availableService": [
     {"@type":"MedicalProcedure","name":"Well-child visits (newborn through age 21)"},
@@ -2062,9 +1167,7 @@
     {"@type":"City","name":"Henderson"},
     {"@type":"AdministrativeArea","name":"Clark County, Nevada"}
   ],
-  "knowsAbout": [
-    "Pediatric primary care","Bilingual healthcare","Newborn care","Adolescent medicine","ADHD evaluation","Childhood immunizations"
-  ],
+  "knowsAbout": ["Pediatric primary care","Bilingual healthcare","Newborn care","Adolescent medicine","ADHD evaluation","Childhood immunizations"],
   "employee": [
     {"@type":"Physician","name":"Francisco Peraza, MD","medicalSpecialty":"Pediatric"},
     {"@type":"Person","name":"Katelyn E. Heck, RN, MSN, CRNP-PNP"},
@@ -2082,7 +1185,7 @@
     {"@type":"Question","name":"Do I need an appointment, or can I walk in?","acceptedAnswer":{"@type":"Answer","text":"Sick visits accept walk-ins any weekday until daily capacity is reached, first-come, first-served. Well-child visits, sports physicals, and follow-ups need a scheduled appointment."}},
     {"@type":"Question","name":"Do your providers speak Spanish?","acceptedAnswer":{"@type":"Answer","text":"Yes. Dr. Francisco Peraza is a native Spanish speaker. Katelyn Heck, our pediatric nurse practitioner, is fluent in Spanish. Front desk staff speaks Spanish as well."}},
     {"@type":"Question","name":"Are you accepting new patients and newborns?","acceptedAnswer":{"@type":"Answer","text":"Yes. All four providers are accepting new patients including newborns."}},
-    {"@type":"Question","name":"What are your hours?","acceptedAnswer":{"@type":"Answer","text":"Monday and Wednesday 10:00 AM to 6:30 PM. Tuesday, Thursday, and Friday 9:00 AM to 5:00 PM. Closed weekends."}},
+    {"@type":"Question","name":"What are your hours?","acceptedAnswer":{"@type":"Answer","text":"Monday through Friday, 8:30 AM to 5:00 PM. Closed weekends. Walk-ins for sick visits are accepted daily until capacity is reached."}},
     {"@type":"Question","name":"How does telemedicine work?","acceptedAnswer":{"@type":"Answer","text":"Telemedicine visits with Dr. Peraza are scheduled via the request form, usually same-day or next-day for established patients."}},
     {"@type":"Question","name":"Do you take my insurance?","acceptedAnswer":{"@type":"Answer","text":"In-network with sixteen plans including Aetna, Cigna, Anthem Blue Cross, United Healthcare, UMR, Health Plan of Nevada, Silver Summit, Molina, Culinary Health Fund, TriCare, UFCW, and others."}},
     {"@type":"Question","name":"What should I bring to my first visit?","acceptedAnswer":{"@type":"Answer","text":"Bring insurance card, photo ID, and immunization records if you have them. Records from a prior pediatrician can be faxed to (702) 818-5013 in advance."}},
