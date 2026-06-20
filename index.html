@@ -232,8 +232,7 @@
         .sheet-links { flex: 1; display: flex; flex-direction: column; padding: 18px 28px 0; overflow-y: auto; }
         .sheet-links a {
             font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 400;
-            letter-spacing: -0.02em; color: var(--ink); padding: 14px 0;
-            border-bottom: 1px solid var(--hairline-soft);
+            letter-spacing: -0.02em; color: var(--ink); padding: 11px 0;
             opacity: 0; transform: translateY(8px);
             transition: opacity 0.42s ease, transform 0.42s ease, color 0.2s;
         }
@@ -329,8 +328,8 @@
             display: flex; flex-wrap: wrap; gap: 14px 32px; justify-content: space-between; align-items: center;
             font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.92rem; color: var(--ink-soft); font-weight: 500;
         }
-        .trust .pt { display: inline-flex; align-items: baseline; gap: 10px; }
-        .trust .pt .num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem; color: var(--gold-deep); font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+        .trust .pt { display: inline-flex; align-items: center; gap: 9px; }
+        .trust .pt::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex: 0 0 auto; }
         @media (max-width: 760px) {
             .trust { margin-top: 34px; padding: 22px 0; }
             .trust .inner { gap: 13px 0; flex-direction: column; align-items: flex-start; }
@@ -629,7 +628,7 @@
         <div class="hero-text">
             <div class="hero-tag">West Las Vegas · Since 2007</div>
             <h1>Pediatric care for<br><span class="it">Las Vegas families</span></h1>
-            <p class="hero-lede">A family pediatric practice on West Sahara Avenue. Newborns through age 21, walk-ins for sick visits, and the same three providers your neighbors call when something is off.</p>
+            <p class="hero-lede">A family pediatric practice on West Sahara Avenue, caring for Las Vegas kids since 2007. Newborns through age 21, walk-ins when your child is sick, and providers who know your family by name. New patients and newborns are always welcome.</p>
             <div class="hero-actions">
                 <a href="tel:+17023311700" class="btn-primary"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.8 3.5h3.1l1.5 3.9-1.9 1.2a12 12 0 0 0 5.2 5.2l1.2-1.9 3.9 1.5v3.1a1.9 1.9 0 0 1-2.1 1.9A16.4 16.4 0 0 1 5 5.6 1.9 1.9 0 0 1 6.8 3.5z"/></svg></span> Call (702) 331-1700</a>
                 <a href="#visit" class="btn-ghost">Schedule a visit</a>
@@ -645,10 +644,10 @@
     <div class="frame">
         <div class="trust">
             <div class="inner">
-                <span class="pt"><span class="num">01</span> A family practice since 2007</span>
-                <span class="pt"><span class="num">02</span> Newborns through age 21</span>
-                <span class="pt"><span class="num">03</span> Walk-ins for sick visits</span>
-                <span class="pt"><span class="num">04</span> 16 insurance plans accepted</span>
+                <span class="pt">A family practice since 2007</span>
+                <span class="pt">Newborns through age 21</span>
+                <span class="pt">Walk-ins welcome for sick visits</span>
+                <span class="pt">16 insurance plans accepted</span>
             </div>
         </div>
     </div>
@@ -667,7 +666,7 @@
                 </div>
             </div>
             <div class="practice-photo">
-                <img src="assets/founder-office.jpg" alt="Dr. Francisco Peraza, founder of Sahara Medical Institute, in his West Las Vegas office">
+                <img src="assets/doc-peraza-real.jpg" alt="Dr. Francisco Peraza, MD, founder of Sahara Medical Institute">
             </div>
         </div>
     </div>
@@ -677,8 +676,7 @@
 <section class="spread care" id="care">
     <div class="frame">
         <div class="spread-head">
-            <div class="overline">Care we offer</div>
-            <h2>Three doors into the <span class="it">same</span> practice.</h2>
+            <h2>How we care for <span class="it">your kids</span></h2>
         </div>
         <div class="care-list">
             <div class="care-item">
@@ -708,8 +706,7 @@
     <div class="frame">
         <div class="fv-top">
             <div class="spread-head" style="margin-bottom:0;">
-                <div class="overline">Your first visit</div>
-                <h2>What it looks like, <span class="it">start to finish</span>.</h2>
+                <h2>What your <span class="it">first visit</span> looks like</h2>
             </div>
             <div class="fv-photo">
                 <img src="assets/care-highfive.jpg" alt="A parent and child sharing a high-five with their pediatrician during a well-child visit">
@@ -739,8 +736,7 @@
 <section class="spread providers" id="providers">
     <div class="frame">
         <div class="spread-head">
-            <div class="overline">Providers</div>
-            <h2>Three providers. <span class="it">One office.</span></h2>
+            <h2>Meet your child's <span class="it">providers</span></h2>
         </div>
 
         <div class="provider-row">
@@ -799,7 +795,6 @@
 <section class="voices" id="voices">
     <div class="frame">
         <div class="vhead">
-            <div class="overline ov">From Las Vegas parents</div>
             <h2>Why families <span class="it">stay</span>.</h2>
         </div>
         <div class="voices-grid">
@@ -822,7 +817,6 @@
 <section class="spread insurance" id="insurance">
     <div class="frame">
         <div class="spread-head">
-            <div class="overline">Insurance</div>
             <h2>In-network with <span class="it">sixteen</span> plans.</h2>
         </div>
     </div>
@@ -871,8 +865,7 @@
 <section class="spread faq" id="faq">
     <div class="frame">
         <div class="spread-head">
-            <div class="overline">Parent questions</div>
-            <h2>The things <span class="it">new families</span> ask us first.</h2>
+            <h2>Questions <span class="it">parents</span> ask us most</h2>
         </div>
         <div class="faq-list">
             <div class="faq-q">
@@ -919,7 +912,6 @@
 <section class="spread visit" id="visit">
     <div class="frame">
         <div class="spread-head">
-            <div class="overline">Visit</div>
             <h2>Request a visit, or <span class="it">just call us</span>.</h2>
         </div>
         <div class="visit-grid">
