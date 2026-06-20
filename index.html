@@ -34,6 +34,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -524,16 +525,17 @@
         /* ========== VISIT ========== */
         .visit { background: var(--paper); }
         .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-        .visit-info .block { margin-bottom: 32px; }
-        .visit-info .block .label { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 10px; }
-        .visit-info .block .body { font-family: 'Fraunces', serif; font-size: 1.4rem; line-height: 1.32; color: var(--ink); font-weight: 500; letter-spacing: -0.015em; }
-        .visit-info .block .body a { color: var(--plum); border-bottom: 1.5px solid var(--plum); transition: color 0.2s, border-color 0.2s; }
-        .visit-info .block .body a:hover { color: var(--plum-deep); border-color: var(--plum-deep); }
-        .visit-info .block .body .row { display: flex; justify-content: space-between; gap: 18px; padding: 8px 0; border-bottom: 1px solid var(--hairline-soft); font-size: 1.05rem; font-weight: 400; }
-        .visit-info .block .body .row:last-child { border-bottom: none; }
-        .visit-info .block .body .row .day { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
-        .visit-info .block .body .row .time { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--ink); font-size: 1rem; font-weight: 500; font-variant-numeric: tabular-nums; }
-        .visit-info .map { margin-top: 24px; aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--hairline); }
+        .visit-info { display: flex; flex-direction: column; gap: 22px; }
+        .visit-card { background: var(--mist); border: 1px solid var(--hairline); border-radius: 14px; overflow: hidden; }
+        .vc-row { display: grid; grid-template-columns: 84px 1fr; gap: 16px; align-items: start; padding: 18px 24px; border-bottom: 1px solid var(--hairline-soft); }
+        .vc-row:last-child { border-bottom: none; }
+        .vc-label { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-deep); padding-top: 4px; }
+        .vc-val { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; line-height: 1.5; color: var(--ink); font-weight: 500; }
+        .vc-val .big { font-family: 'Fraunces', serif; font-size: 1.12rem; font-weight: 500; }
+        .vc-val .muted { color: var(--ink-soft); font-weight: 400; }
+        .vc-val a { color: var(--plum); border-bottom: 1.5px solid var(--plum); transition: color 0.2s, border-color 0.2s; }
+        .vc-val a:hover { color: var(--plum-deep); border-color: var(--plum-deep); }
+        .visit-info .map { aspect-ratio: 16/10; overflow: hidden; border: 1px solid var(--hairline); border-radius: 14px; }
         .visit-info .map iframe { width: 100%; height: 100%; border: 0; }
 
         .visit-form { background: var(--mist); padding: 44px 44px 36px; border: 1px solid var(--hairline); }
@@ -555,18 +557,22 @@
         .visit-success { display: none; margin-top: 22px; padding: 16px 20px; background: var(--lilac); color: var(--ink); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; border-left: 3px solid var(--plum); }
         .visit-success.show { display: block; }
         .visit-note { margin-top: 18px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.78rem; color: var(--ink-mute); }
-        @media (max-width: 880px) { .visit-grid { grid-template-columns: 1fr; gap: 38px; } .visit-form { padding: 30px 22px; } .visit-info .map { aspect-ratio: 16/10; margin-top: 18px; } .visit-info .block { margin-bottom: 24px; } .fld { margin-bottom: 18px; } }
+        @media (max-width: 880px) { .visit-grid { grid-template-columns: 1fr; gap: 36px; } .visit-form { padding: 30px 22px; } .vc-row { grid-template-columns: 72px 1fr; padding: 15px 18px; } .fld { margin-bottom: 18px; } }
 
         /* ========== FOOTER ========== */
         footer.foot { background: var(--plum-deep); color: rgba(244, 239, 230, 0.78); padding: 88px 0 34px; }
         .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 56px; }
-        .foot-brand .word { display: flex; flex-direction: column; margin-bottom: 20px; }
+        .foot-brand .word { display: flex; flex-direction: column; }
+        .foot-logo { display: inline-flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+        .fl-badge { width: 52px; height: 52px; border-radius: 12px; background: var(--cream); display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+        .fl-badge img { width: 38px; height: auto; display: block; }
         .foot-brand .word .name { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 600; color: var(--cream); letter-spacing: -0.015em; }
         .foot-brand .word .sub { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-top: 6px; }
         .foot-brand p { max-width: 360px; font-size: 0.95rem; color: rgba(244, 239, 230, 0.7); line-height: 1.62; margin-bottom: 24px; }
-        .foot-social { display: flex; gap: 22px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; font-weight: 600; }
-        .foot-social a { color: rgba(244, 239, 230, 0.7); border-bottom: 1px solid transparent; padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
-        .foot-social a:hover { color: var(--gold); border-color: var(--gold); }
+        .foot-social { display: flex; gap: 12px; margin-top: 46px; }
+        .fs-btn { width: 42px; height: 42px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: rgba(244, 239, 230, 0.08); color: rgba(244, 239, 230, 0.82); transition: background 0.2s, color 0.2s; }
+        .fs-btn:hover { background: var(--gold); color: var(--plum-deep); }
+        .fs-btn i { font-size: 16px; line-height: 1; }
         .foot-col h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream); margin-bottom: 18px; }
         .foot-col ul { list-style: none; }
         .foot-col li { margin-bottom: 10px; font-size: 0.93rem; }
@@ -575,7 +581,7 @@
         .foot-col address { font-style: normal; font-size: 0.95rem; color: rgba(244, 239, 230, 0.7); line-height: 1.66; }
         .foot-col address strong { color: var(--cream); display: block; margin-bottom: 4px; font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 600; }
         .foot-col address a { color: var(--gold); border-bottom: 1px solid rgba(216, 154, 40, 0.3); }
-        .foot-bottom { margin-top: 70px; padding-top: 24px; border-top: 1px solid var(--hairline-dark); display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.78rem; color: rgba(244, 239, 230, 0.55); }
+        .foot-bottom { margin-top: 30px; padding-top: 24px; border-top: 1px solid var(--hairline-dark); display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.78rem; color: rgba(244, 239, 230, 0.55); }
         @media (max-width: 880px) {
             .foot-grid { grid-template-columns: 1fr 1fr; gap: 30px 26px; }
             .foot-brand { grid-column: 1 / -1; }
@@ -968,20 +974,10 @@
         </div>
         <div class="visit-grid">
             <div class="visit-info">
-                <div class="block">
-                    <div class="label">Office</div>
-                    <div class="body">Sahara Medical Institute<br>5781 W Sahara Ave #500<br>Las Vegas, NV 89146</div>
-                </div>
-                <div class="block">
-                    <div class="label">Phone &amp; Fax</div>
-                    <div class="body"><a href="tel:+17023311700">(702) 331-1700</a><br><span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.95rem; color:var(--ink-soft); font-weight:400;">Fax: (702) 818-5013</span></div>
-                </div>
-                <div class="block">
-                    <div class="label">Hours</div>
-                    <div class="body">
-                        <div class="row"><span class="day">Mon &ndash; Fri</span><span class="time">8:30 AM &ndash; 5:00 PM</span></div>
-                        <div class="row"><span class="day">Sat &amp; Sun</span><span class="time">Closed</span></div>
-                    </div>
+                <div class="visit-card">
+                    <div class="vc-row"><span class="vc-label">Office</span><span class="vc-val"><span class="big">Sahara Medical Institute</span><br>5781 W Sahara Ave #500<br>Las Vegas, NV 89146</span></div>
+                    <div class="vc-row"><span class="vc-label">Phone</span><span class="vc-val"><a href="tel:+17023311700">(702) 331-1700</a><br><span class="muted">Fax (702) 818-5013</span></span></div>
+                    <div class="vc-row"><span class="vc-label">Hours</span><span class="vc-val">Mon&ndash;Fri, 8:30 AM &ndash; 5:00 PM<br><span class="muted">Saturday &amp; Sunday closed</span></span></div>
                 </div>
                 <div class="map">
                     <iframe src="https://www.google.com/maps?q=5781+W+Sahara+Ave+%23500+Las+Vegas+NV+89146&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Sahara Medical Institute on Google Maps"></iframe>
@@ -1038,17 +1034,14 @@
     <div class="frame">
         <div class="foot-grid">
             <div class="foot-brand">
-                <a href="#top" class="word">
-                    <span class="name">Sahara Medical Institute</span>
-                    <span class="sub">Pediatrics · Las Vegas · 2007</span>
+                <a href="#top" class="foot-logo">
+                    <span class="fl-badge"><img src="assets/logo-mark.png" alt="Sahara Medical Institute"></span>
+                    <span class="word">
+                        <span class="name">Sahara Medical Institute</span>
+                        <span class="sub">Pediatrics · Las Vegas · 2007</span>
+                    </span>
                 </a>
                 <p>Bilingual pediatric care for Las Vegas families. Newborns through age 21, walk-ins for sick visits, telemedicine, and sixteen insurance plans accepted.</p>
-                <div class="foot-social">
-                    <a href="https://www.facebook.com/SaharaMedicalinstitute" target="_blank" rel="noopener">Facebook</a>
-                    <a href="https://www.instagram.com/vegaspediatrics" target="_blank" rel="noopener">Instagram</a>
-                    <a href="https://www.tiktok.com/@vegaspeds" target="_blank" rel="noopener">TikTok</a>
-                    <a href="https://www.yelp.com/biz/sahara-medical-institute-las-vegas" target="_blank" rel="noopener">Yelp</a>
-                </div>
             </div>
             <div class="foot-col">
                 <h4>Site</h4>
@@ -1072,6 +1065,12 @@
                     Mon &ndash; Fri 8:30 AM &ndash; 5:00 PM
                 </address>
             </div>
+        </div>
+        <div class="foot-social">
+            <a class="fs-btn" href="https://www.facebook.com/SaharaMedicalinstitute" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+            <a class="fs-btn" href="https://www.instagram.com/vegaspediatrics" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a class="fs-btn" href="https://www.tiktok.com/@vegaspeds" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+            <a class="fs-btn" href="https://www.yelp.com/biz/sahara-medical-institute-las-vegas" target="_blank" rel="noopener" aria-label="Yelp"><i class="fa-brands fa-yelp" aria-hidden="true"></i></a>
         </div>
         <div class="foot-bottom">
             <span>© 2007 – 2026 Sahara Medical Institute. All rights reserved.</span>
