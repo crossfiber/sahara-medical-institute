@@ -477,6 +477,25 @@
         .ins-foot { margin-top: 42px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; color: var(--ink-soft); }
         .ins-foot a { color: var(--plum); border-bottom: 1.5px solid var(--plum); transition: color 0.2s, border-color 0.2s; }
         .ins-foot a:hover { color: var(--plum-deep); border-color: var(--plum-deep); }
+        .ins-see-all { background: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--plum); border-bottom: 1.5px solid var(--plum); cursor: pointer; padding: 0; transition: color 0.2s, border-color 0.2s; }
+        .ins-see-all:hover { color: var(--plum-deep); border-color: var(--plum-deep); }
+        .ins-modal-ov { position: fixed; inset: 0; background: rgba(41, 36, 60, 0.55); z-index: 100; display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.26s ease; }
+        .ins-modal-ov.open { opacity: 1; pointer-events: auto; }
+        .ins-modal { background: var(--paper); width: 100%; max-width: 580px; max-height: 86dvh; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 26px 64px rgba(42, 30, 82, 0.42); transform: translateY(14px) scale(0.99); transition: transform 0.28s cubic-bezier(.2, .8, .2, 1); }
+        .ins-modal-ov.open .ins-modal { transform: none; }
+        .ins-modal-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 22px 26px; background: var(--plum-deep); }
+        .ins-modal-head h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.5rem; color: var(--cream); letter-spacing: -0.015em; }
+        .ins-modal-head .sub { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-top: 5px; }
+        .ins-modal-close { color: var(--cream); width: 38px; height: 38px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 1.5rem; line-height: 1; flex: 0 0 auto; transition: background 0.2s; }
+        .ins-modal-close:hover { background: rgba(244, 239, 230, 0.14); }
+        .ins-modal-body { padding: 16px 26px 6px; overflow-y: auto; }
+        .ins-plan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 24px; }
+        .ins-plan { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--hairline-soft); }
+        .ins-plan img { width: 36px; height: 36px; border-radius: 50%; flex: 0 0 auto; box-shadow: 0 1px 4px rgba(41, 36, 60, 0.12); }
+        .ins-plan span { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem; font-weight: 500; color: var(--ink); line-height: 1.25; }
+        .ins-modal-foot { padding: 16px 26px calc(20px + env(safe-area-inset-bottom)); border-top: 1px solid var(--hairline); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; color: var(--ink-soft); }
+        .ins-modal-foot a { color: var(--plum); border-bottom: 1.5px solid var(--plum); }
+        @media (max-width: 560px) { .ins-plan-grid { grid-template-columns: 1fr; } .ins-modal-head h3 { font-size: 1.3rem; } }
         @media (max-width: 760px) {
             .ins-logo { width: 58px; height: 58px; }
             .ins-track { gap: 18px; animation-duration: 44s; }
@@ -855,9 +874,43 @@
         </div>
     </div>
     <div class="frame">
-        <p class="ins-foot">Don't see yours? <a href="tel:+17023311700">Call the front desk</a> and we'll verify your plan in a few minutes.</p>
+        <p class="ins-foot"><button class="ins-see-all" id="insSeeAll" type="button">See all sixteen plans</button>. Don't see yours? <a href="tel:+17023311700">Call the front desk</a> and we'll verify it in a few minutes.</p>
     </div>
 </section>
+
+<!-- ========== INSURANCE MODAL ========== -->
+<div class="ins-modal-ov" id="insModal" role="dialog" aria-modal="true" aria-labelledby="insModalTitle">
+    <div class="ins-modal">
+        <div class="ins-modal-head">
+            <div>
+                <h3 id="insModalTitle">Insurance we accept</h3>
+                <div class="sub">Sahara Medical Institute</div>
+            </div>
+            <button class="ins-modal-close" id="insModalClose" type="button" aria-label="Close">&times;</button>
+        </div>
+        <div class="ins-modal-body">
+            <div class="ins-plan-grid">
+                <div class="ins-plan"><img src="assets/ins-aetna.png" alt=""><span>Aetna</span></div>
+                <div class="ins-plan"><img src="assets/ins-anthem.png" alt=""><span>Anthem Blue Cross</span></div>
+                <div class="ins-plan"><img src="assets/ins-beechstreet.png" alt=""><span>Beech Street</span></div>
+                <div class="ins-plan"><img src="assets/ins-cigna.png" alt=""><span>Cigna</span></div>
+                <div class="ins-plan"><img src="assets/ins-culinary.png" alt=""><span>Culinary Health Fund</span></div>
+                <div class="ins-plan"><img src="assets/ins-hpn.png" alt=""><span>Health Plan of Nevada</span></div>
+                <div class="ins-plan"><img src="assets/ins-healthscope.png" alt=""><span>HealthScope Benefits</span></div>
+                <div class="ins-plan"><img src="assets/ins-molina.png" alt=""><span>Molina Healthcare</span></div>
+                <div class="ins-plan"><img src="assets/ins-multiplan.png" alt=""><span>MultiPlan</span></div>
+                <div class="ins-plan"><img src="assets/ins-national.png" alt=""><span>National Brotherhood</span></div>
+                <div class="ins-plan"><img src="assets/ins-silversummit.png" alt=""><span>Silver Summit</span></div>
+                <div class="ins-plan"><img src="assets/ins-southwest.png" alt=""><span>SouthWest Service Administrators</span></div>
+                <div class="ins-plan"><img src="assets/ins-tricare.png" alt=""><span>TriCare</span></div>
+                <div class="ins-plan"><img src="assets/ins-ufcw.png" alt=""><span>UFCW</span></div>
+                <div class="ins-plan"><img src="assets/ins-umr.png" alt=""><span>UMR</span></div>
+                <div class="ins-plan"><img src="assets/ins-united.png" alt=""><span>United Healthcare</span></div>
+            </div>
+        </div>
+        <div class="ins-modal-foot">Don't see your plan? <a href="tel:+17023311700">Call (702) 331-1700</a> and we'll verify it in a few minutes.</div>
+    </div>
+</div>
 
 <!-- ========== FAQ ========== -->
 <section class="spread faq" id="faq">
@@ -1042,6 +1095,18 @@
     navOverlay.addEventListener('click', closeMenu);
     document.querySelectorAll('[data-sheet-link]').forEach(a => a.addEventListener('click', () => setTimeout(closeMenu, 60)));
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && sheet.classList.contains('open')) closeMenu(); });
+
+    const insModal = document.getElementById('insModal');
+    const insSeeAll = document.getElementById('insSeeAll');
+    const insModalClose = document.getElementById('insModalClose');
+    if (insModal && insSeeAll) {
+        const openIns = () => { insModal.classList.add('open'); document.body.style.overflow = 'hidden'; };
+        const closeIns = () => { insModal.classList.remove('open'); document.body.style.overflow = ''; };
+        insSeeAll.addEventListener('click', openIns);
+        insModalClose.addEventListener('click', closeIns);
+        insModal.addEventListener('click', e => { if (e.target === insModal) closeIns(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape' && insModal.classList.contains('open')) closeIns(); });
+    }
 
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', (e) => {
