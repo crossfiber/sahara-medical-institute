@@ -472,20 +472,16 @@
         .ins-marquee { position: relative; width: 100%; padding: 8px 0; overflow: hidden;
             -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
             mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
-        .ins-track { display: flex; align-items: center; gap: 18px; width: max-content; animation: ins-scroll 48s linear infinite; will-change: transform; }
+        .ins-track { display: flex; align-items: center; gap: 30px; width: max-content; animation: ins-scroll 52s linear infinite; will-change: transform; }
         .ins-marquee:hover .ins-track { animation-play-state: paused; }
         @keyframes ins-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-        .ins-chip { display: inline-flex; align-items: center; justify-content: center; white-space: nowrap;
-            font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.45rem; letter-spacing: -0.01em; color: var(--ink-soft);
-            padding: 16px 32px; border: 1px solid var(--hairline); border-radius: 100px; background: #fff; box-shadow: 0 1px 2px rgba(41,36,60,0.04); }
-        .ins-chip img { height: 30px; width: auto; display: block; }
+        .ins-logo { flex: 0 0 auto; width: 76px; height: 76px; border-radius: 50%; display: block; box-shadow: 0 3px 12px rgba(41, 36, 60, 0.12); }
         .ins-foot { margin-top: 42px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; color: var(--ink-soft); }
         .ins-foot a { color: var(--plum); border-bottom: 1.5px solid var(--plum); transition: color 0.2s, border-color 0.2s; }
         .ins-foot a:hover { color: var(--plum-deep); border-color: var(--plum-deep); }
         @media (max-width: 760px) {
-            .ins-chip { font-size: 1.12rem; padding: 12px 22px; }
-            .ins-chip img { height: 24px; }
-            .ins-track { gap: 13px; animation-duration: 40s; }
+            .ins-logo { width: 58px; height: 58px; }
+            .ins-track { gap: 18px; animation-duration: 44s; }
             .ins-foot { margin-top: 32px; }
         }
         @media (prefers-reduced-motion: reduce) {
@@ -832,38 +828,38 @@
     </div>
     <div class="ins-marquee" role="group" aria-label="Insurance plans we accept">
         <div class="ins-track">
-            <span class="ins-chip">Aetna</span>
-            <span class="ins-chip">Cigna</span>
-            <span class="ins-chip">Anthem Blue Cross</span>
-            <span class="ins-chip">United Healthcare</span>
-            <span class="ins-chip">UMR</span>
-            <span class="ins-chip">Health Plan of Nevada</span>
-            <span class="ins-chip">Silver Summit</span>
-            <span class="ins-chip">Molina Healthcare</span>
-            <span class="ins-chip">Culinary Health Fund</span>
-            <span class="ins-chip">TriCare</span>
-            <span class="ins-chip">UFCW</span>
-            <span class="ins-chip">MultiPlan</span>
-            <span class="ins-chip">Beech Street</span>
-            <span class="ins-chip">HealthScope Benefits</span>
-            <span class="ins-chip">SouthWest Service Administrators</span>
-            <span class="ins-chip">National Brotherhood</span>
-            <span class="ins-chip" aria-hidden="true">Aetna</span>
-            <span class="ins-chip" aria-hidden="true">Cigna</span>
-            <span class="ins-chip" aria-hidden="true">Anthem Blue Cross</span>
-            <span class="ins-chip" aria-hidden="true">United Healthcare</span>
-            <span class="ins-chip" aria-hidden="true">UMR</span>
-            <span class="ins-chip" aria-hidden="true">Health Plan of Nevada</span>
-            <span class="ins-chip" aria-hidden="true">Silver Summit</span>
-            <span class="ins-chip" aria-hidden="true">Molina Healthcare</span>
-            <span class="ins-chip" aria-hidden="true">Culinary Health Fund</span>
-            <span class="ins-chip" aria-hidden="true">TriCare</span>
-            <span class="ins-chip" aria-hidden="true">UFCW</span>
-            <span class="ins-chip" aria-hidden="true">MultiPlan</span>
-            <span class="ins-chip" aria-hidden="true">Beech Street</span>
-            <span class="ins-chip" aria-hidden="true">HealthScope Benefits</span>
-            <span class="ins-chip" aria-hidden="true">SouthWest Service Administrators</span>
-            <span class="ins-chip" aria-hidden="true">National Brotherhood</span>
+            <img class="ins-logo" src="assets/ins-aetna.png" alt="Aetna" loading="lazy">
+            <img class="ins-logo" src="assets/ins-cigna.png" alt="Cigna" loading="lazy">
+            <img class="ins-logo" src="assets/ins-anthem.png" alt="Anthem Blue Cross" loading="lazy">
+            <img class="ins-logo" src="assets/ins-united.png" alt="United Healthcare" loading="lazy">
+            <img class="ins-logo" src="assets/ins-umr.png" alt="UMR" loading="lazy">
+            <img class="ins-logo" src="assets/ins-hpn.png" alt="Health Plan of Nevada" loading="lazy">
+            <img class="ins-logo" src="assets/ins-silversummit.png" alt="Silver Summit" loading="lazy">
+            <img class="ins-logo" src="assets/ins-molina.png" alt="Molina Healthcare" loading="lazy">
+            <img class="ins-logo" src="assets/ins-culinary.png" alt="Culinary Health Fund" loading="lazy">
+            <img class="ins-logo" src="assets/ins-tricare.png" alt="TriCare" loading="lazy">
+            <img class="ins-logo" src="assets/ins-ufcw.png" alt="UFCW" loading="lazy">
+            <img class="ins-logo" src="assets/ins-multiplan.png" alt="MultiPlan" loading="lazy">
+            <img class="ins-logo" src="assets/ins-beechstreet.png" alt="Beech Street" loading="lazy">
+            <img class="ins-logo" src="assets/ins-healthscope.png" alt="HealthScope Benefits" loading="lazy">
+            <img class="ins-logo" src="assets/ins-southwest.png" alt="SouthWest Service Administrators" loading="lazy">
+            <img class="ins-logo" src="assets/ins-national.png" alt="National Brotherhood" loading="lazy">
+            <img class="ins-logo" src="assets/ins-aetna.png" alt="" aria-hidden="true" loading="lazy">
+            <img class="ins-logo" src="assets/ins-cigna.png" alt="" aria-hidden="true" loading="lazy">
+            <img class="ins-logo" src="assets/ins-anthem.png" alt="" aria-hidden="true" loading="lazy">
+            <img class="ins-logo" src="assets/ins-united.png" alt="" aria-hidden="true" loading="lazy">
+            <img class="ins-logo" src="assets/ins-umr.png" alt="" aria-hidden="true" loading="lazy">
+            <img class="ins-logo" src="assets/ins-hpn.png" alt="" aria-hidden="true" loading="lazy">
+            <img class="ins-logo" src="assets/ins-silversummit.png" alt="" aria-hidden="true" loading="lazy">
+            <img class="ins-logo" src="assets/ins-molina.png" alt="" aria-hidden="true" loading="lazy">
+            <img class="ins-logo" src="assets/ins-culinary.png" alt="" aria-hidden="true" loading="lazy">
+            <img class="ins-logo" src="assets/ins-tricare.png" alt="" aria-hidden="true" loading="lazy">
+            <img class="ins-logo" src="assets/ins-ufcw.png" alt="" aria-hidden="true" loading="lazy">
+            <img class="ins-logo" src="assets/ins-multiplan.png" alt="" aria-hidden="true" loading="lazy">
+            <img class="ins-logo" src="assets/ins-beechstreet.png" alt="" aria-hidden="true" loading="lazy">
+            <img class="ins-logo" src="assets/ins-healthscope.png" alt="" aria-hidden="true" loading="lazy">
+            <img class="ins-logo" src="assets/ins-southwest.png" alt="" aria-hidden="true" loading="lazy">
+            <img class="ins-logo" src="assets/ins-national.png" alt="" aria-hidden="true" loading="lazy">
         </div>
     </div>
     <div class="frame">
