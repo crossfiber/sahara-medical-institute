@@ -491,6 +491,7 @@
         .ins-modal-body { padding: 16px 26px 6px; overflow-y: auto; }
         .ins-plan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 24px; }
         .ins-plan { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--hairline-soft); }
+        .ins-plan:nth-last-child(-n+2) { border-bottom: none; }
         .ins-plan img { width: 36px; height: 36px; border-radius: 50%; flex: 0 0 auto; box-shadow: 0 1px 4px rgba(41, 36, 60, 0.12); }
         .ins-plan span { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem; font-weight: 500; color: var(--ink); line-height: 1.25; }
         .ins-modal-foot { padding: 16px 26px calc(20px + env(safe-area-inset-bottom)); border-top: 1px solid var(--hairline); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem; color: var(--ink-soft); }
