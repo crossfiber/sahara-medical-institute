@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Sahara Medical Institute | Bilingual Pediatrician in West Las Vegas (702) 331-1700</title>
-    <meta name="description" content="Bilingual pediatric care in West Las Vegas since 2007. Newborns through age 21, well-child visits, sick walk-ins, telemedicine. Four providers, 16 insurance plans. (702) 331-1700.">
+    <meta name="description" content="Bilingual pediatric care in West Las Vegas since 2007. Newborns through age 21, well-child visits, sick walk-ins, telemedicine. Three providers, 16 insurance plans. (702) 331-1700.">
     <meta name="keywords" content="pediatrician Las Vegas, bilingual pediatrician Las Vegas, Spanish speaking pediatrician Las Vegas, Sahara Medical Institute, Vegas Pediatrics, newborn care Las Vegas, well-child visits 89146, sick child walk-in Las Vegas, pediatric telemedicine Nevada, sports physical Las Vegas">
     <meta name="geo.position" content="36.1438,-115.2203">
     <meta name="geo.placename" content="Las Vegas, NV">
@@ -204,24 +204,30 @@
 
         /* Mobile sheet */
         .nav-overlay {
-            position: fixed; inset: 0; background: rgba(41, 36, 60, 0.5); z-index: 65;
+            position: fixed; inset: 0; background: rgba(41, 36, 60, 0.5); z-index: 85;
             opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
         }
         .nav-overlay.open { opacity: 1; pointer-events: auto; }
         .sheet {
             position: fixed; top: 0; right: 0; width: 340px; max-width: 86vw; height: 100dvh;
-            background: var(--paper); z-index: 70; transform: translateX(100%);
+            background: var(--paper); z-index: 95; transform: translateX(100%);
             transition: transform 0.34s cubic-bezier(.2, .8, .2, 1);
             display: flex; flex-direction: column;
             box-shadow: -8px 0 44px rgba(42, 30, 82, 0.20);
-            padding-top: calc(var(--nav-h) + env(safe-area-inset-top));
+            padding-top: env(safe-area-inset-top);
             padding-bottom: env(safe-area-inset-bottom);
         }
         .sheet.open { transform: translateX(0); }
+        .drawer-header {
+            display: flex; align-items: center; justify-content: space-between;
+            min-height: var(--nav-h); padding: 12px 22px; border-bottom: 1px solid var(--hairline-soft);
+        }
+        .drawer-header .dh-logo { display: inline-flex; align-items: center; gap: 10px; }
+        .drawer-header .dh-logo img { height: 32px; width: auto; }
+        .drawer-header .dh-name { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 600; color: var(--plum); letter-spacing: -0.01em; }
         .sheet-close {
-            position: absolute; top: max(16px, env(safe-area-inset-top)); right: 22px;
-            font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-            color: var(--plum); display: inline-flex; align-items: center; gap: 8px; padding: 8px 0;
+            font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--plum); display: inline-flex; align-items: center; gap: 7px; padding: 6px 2px;
         }
         .sheet-links { flex: 1; display: flex; flex-direction: column; padding: 18px 28px 0; overflow-y: auto; }
         .sheet-links a {
@@ -299,10 +305,6 @@
             width: 100%; height: 100%; min-height: 540px; max-height: 720px;
             object-fit: cover; object-position: center 24%; display: block;
         }
-        .hero-image::before {
-            content: ''; position: absolute; left: -22px; top: 40px; bottom: 64px; width: 60%;
-            background: var(--lilac); z-index: 0;
-        }
         .hero-image-inner { z-index: 1; }
         .hero-caption {
             padding: 16px 0 0 24px; display: flex; align-items: center; gap: 12px;
@@ -316,7 +318,6 @@
             .hero-grid { grid-template-columns: 1fr; padding-left: 0; }
             .hero-text { padding: 0 22px 34px; order: 1; }
             .hero-image { order: 2; padding: 0 22px 18px; }
-            .hero-image::before { left: 6px; top: 22px; bottom: 30px; width: 55%; }
             .hero-image-inner img { min-height: 380px; max-height: 520px; aspect-ratio: 4/5; }
             .hero-caption { padding: 12px 22px 0; }
             .hero h1 { font-size: clamp(2.4rem, 9.5vw, 3.8rem); }
@@ -350,16 +351,13 @@
         /* ========== PRACTICE ========== */
         .practice { background: var(--paper); }
         .practice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: flex-start; }
-        .practice-quote {
-            font-family: 'Fraunces', serif; font-style: normal; font-weight: 400;
-            font-size: clamp(1.8rem, 3vw, 2.55rem); line-height: 1.2; letter-spacing: -0.012em;
-            color: var(--ink); margin-bottom: 30px;
+        .practice-name {
+            font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 3.2vw, 2.5rem); font-weight: 500;
+            line-height: 1.08; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 8px;
         }
-        .practice-quote::before { content: '\201C'; color: var(--gold); margin-right: 4px; }
-        .practice-quote::after { content: '\201D'; color: var(--gold); margin-left: 2px; }
-        .practice-cite {
-            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.76rem; font-weight: 700;
-            letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 28px; display: block;
+        .practice-meta {
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.74rem; font-weight: 700;
+            letter-spacing: 0.16em; text-transform: uppercase; color: var(--plum); margin-bottom: 26px;
         }
         .practice-prose p { font-size: 1.05rem; line-height: 1.68; color: var(--ink-soft); margin-bottom: 16px; max-width: 520px; }
         .practice-prose .small-cap { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--plum); }
@@ -370,7 +368,6 @@
         @media (max-width: 880px) {
             .practice-grid { grid-template-columns: 1fr; gap: 34px; }
             .practice-photo { order: -1; padding: 12px 0 0 12px; max-width: 400px; }
-            .practice-quote { font-size: clamp(1.5rem, 6vw, 2rem); margin-bottom: 20px; }
             .practice-prose p { max-width: none; }
         }
 
@@ -464,8 +461,9 @@
         .voices-foot a { color: var(--gold); border-bottom: 1px solid rgba(216, 154, 40, 0.4); }
         @media (max-width: 760px) {
             .voices { padding: 76px 0; }
-            .voices-grid { grid-template-columns: 1fr; gap: 20px; }
-            .voice { padding: 30px 26px; }
+            .voices-grid { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 22px; margin: 0 -22px; padding: 0 22px 6px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+            .voices-grid::-webkit-scrollbar { display: none; }
+            .voice { scroll-snap-align: center; flex: 0 0 85%; padding: 30px 26px; }
             .voice blockquote { font-size: 1.3rem; }
         }
 
@@ -611,7 +609,10 @@
 
 <div class="nav-overlay" id="navOverlay"></div>
 <aside class="sheet" id="sheet" aria-label="Mobile navigation">
-    <button class="sheet-close" id="sheetClose" type="button">Close <span aria-hidden="true">&times;</span></button>
+    <div class="drawer-header">
+        <span class="dh-logo"><img src="assets/logo-mark.png" alt="Sahara Medical Institute"><span class="dh-name">Sahara Medical Institute</span></span>
+        <button class="sheet-close" id="sheetClose" type="button">Close <span aria-hidden="true">&times;</span></button>
+    </div>
     <div class="sheet-links">
         <a href="#practice" data-sheet-link>Practice</a>
         <a href="#care" data-sheet-link>Care</a>
@@ -632,20 +633,15 @@
         <div class="hero-text">
             <div class="hero-tag">West Las Vegas · Since 2007</div>
             <h1>Pediatric care for<br><span class="it">Las Vegas families</span></h1>
-            <p class="hero-lede">A family pediatric practice on West Sahara Avenue. Newborns through age 21, walk-ins for sick visits, and the same four providers your neighbors call when something is off.</p>
+            <p class="hero-lede">A family pediatric practice on West Sahara Avenue. Newborns through age 21, walk-ins for sick visits, and the same three providers your neighbors call when something is off.</p>
             <div class="hero-actions">
                 <a href="tel:+17023311700" class="btn-primary"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.8 3.5h3.1l1.5 3.9-1.9 1.2a12 12 0 0 0 5.2 5.2l1.2-1.9 3.9 1.5v3.1a1.9 1.9 0 0 1-2.1 1.9A16.4 16.4 0 0 1 5 5.6 1.9 1.9 0 0 1 6.8 3.5z"/></svg></span> Call (702) 331-1700</a>
-                <a href="#visit" class="btn-ghost">Request a visit</a>
+                <a href="#visit" class="btn-ghost">Schedule a visit</a>
             </div>
         </div>
         <div class="hero-image">
             <div class="hero-image-inner">
                 <img src="assets/hero-kids.jpg" fetchpriority="high" alt="Children playing outdoors in the Las Vegas sun, cared for by Sahara Medical Institute pediatrics">
-            </div>
-            <div class="hero-caption">
-                <span>Caring for Las Vegas kids</span>
-                <span class="dot" aria-hidden="true"></span>
-                <span>Newborn through age 21</span>
             </div>
         </div>
     </div>
@@ -667,16 +663,15 @@
     <div class="frame">
         <div class="practice-grid">
             <div>
-                <p class="practice-quote">Take the extra ten minutes, explain it again, and write it down if it helps.</p>
-                <span class="practice-cite">Dr. Francisco Peraza, founder</span>
+                <h2 class="practice-name">Dr. Francisco Peraza</h2>
+                <div class="practice-meta">Founder · West Sahara Avenue · Since 2007</div>
                 <div class="practice-prose">
                     <p>Dr. Peraza earned his medical degree at the University of Havana in 1991 and became a First-Degree Pediatric Specialist before earning his Nevada license in 2007. The same year, he opened Sahara Medical Institute around one idea: every conversation about a fever, a feeding question, a vaccine schedule, or a behavioral concern should happen in the language that family thinks in.</p>
-                    <p><span class="small-cap">Nearly two decades on</span>, the practice is four providers strong, accepting newborns and new patients, and still on West Sahara Avenue. Walk-ins for sick visits, telemedicine when you can't leave the house, and a team that practices the way he taught them: unhurried, thorough, and easy to understand.</p>
+                    <p><span class="small-cap">Nearly two decades on</span>, the practice is three providers strong, accepting newborns and new patients, and still on West Sahara Avenue. Walk-ins for sick visits, telemedicine when you can't leave the house, and a team that practices the way he taught them: unhurried, thorough, and easy to understand.</p>
                 </div>
             </div>
             <div class="practice-photo">
                 <img src="assets/founder-office.jpg" alt="Dr. Francisco Peraza, founder of Sahara Medical Institute, in his West Las Vegas office">
-                <div class="caption">Dr. Francisco Peraza, MD · Founder · West Sahara Avenue, since 2007</div>
             </div>
         </div>
     </div>
@@ -749,7 +744,7 @@
     <div class="frame">
         <div class="spread-head">
             <div class="overline">Providers</div>
-            <h2>Four people. <span class="it">One office.</span></h2>
+            <h2>Three providers. <span class="it">One office.</span></h2>
         </div>
 
         <div class="provider-row">
@@ -797,23 +792,8 @@
             </div>
         </div>
 
-        <div class="provider-row">
-            <div class="provider-portrait"><img src="assets/provider-nichole.jpg" alt="Nichole Fernandez, APRN, FNP-C, family nurse practitioner at Sahara Medical Institute"></div>
-            <div class="provider-meta">
-                <div>
-                    <div class="provider-name">Nichole Fernandez</div>
-                    <div class="provider-cred">APRN, FNP-C</div>
-                    <p class="provider-bio">Newest member of the Sahara Medical team. Board-certified family nurse practitioner, now accepting pediatric patients across the full age range, from well-child visits to sick walk-ins.</p>
-                </div>
-                <div class="provider-side">
-                    <div class="lang">English<span class="small">Primary</span></div>
-                    <div class="since"><strong>New</strong> to the team</div>
-                </div>
-            </div>
-        </div>
-
         <div class="providers-foot">
-            <p class="note">All four providers see well-child visits and sick walk-ins. Two are fluent in Spanish. If you'd like a specific provider, ask for them by name when you call.</p>
+            <p class="note">All three providers see well-child visits and sick walk-ins. Two are fluent in Spanish. If you'd like a specific provider, ask for them by name when you call.</p>
             <a href="tel:+17023311700" class="link-arrow">Call to schedule <span class="a">&rarr;</span></a>
         </div>
     </div>
@@ -909,7 +889,7 @@
             </div>
             <div class="faq-q">
                 <button class="faq-trigger" type="button" aria-expanded="false"><span>Are you accepting new patients and newborns?</span><span class="plus">+</span></button>
-                <div class="faq-a"><div class="faq-a-inner">Yes to both. All four providers are accepting new patients, including newborns. Whether you're a new parent, new to Las Vegas, or switching from another practice, call to set up a first visit.</div></div>
+                <div class="faq-a"><div class="faq-a-inner">Yes to both. All three providers are accepting new patients, including newborns. Whether you're a new parent, new to Las Vegas, or switching from another practice, call to set up a first visit.</div></div>
             </div>
             <div class="faq-q">
                 <button class="faq-trigger" type="button" aria-expanded="false"><span>What are your hours?</span><span class="plus">+</span></button>
@@ -1229,8 +1209,7 @@
   "employee": [
     {"@type":"Physician","name":"Francisco Peraza, MD","medicalSpecialty":"Pediatric"},
     {"@type":"Person","name":"Katelyn E. Heck, RN, MSN, CRNP-PNP"},
-    {"@type":"Physician","name":"Marlon A. Mendoza, MD","medicalSpecialty":"Pediatric"},
-    {"@type":"Person","name":"Nichole Fernandez, APRN, FNP-C"}
+    {"@type":"Physician","name":"Marlon A. Mendoza, MD","medicalSpecialty":"Pediatric"}
   ]
 }
 </script>
@@ -1242,7 +1221,7 @@
   "mainEntity": [
     {"@type":"Question","name":"Do I need an appointment, or can I walk in?","acceptedAnswer":{"@type":"Answer","text":"Sick visits accept walk-ins any weekday until daily capacity is reached, first-come, first-served. Well-child visits, sports physicals, and follow-ups need a scheduled appointment."}},
     {"@type":"Question","name":"Do your providers speak Spanish?","acceptedAnswer":{"@type":"Answer","text":"Yes. Dr. Francisco Peraza is a native Spanish speaker. Katelyn Heck, our pediatric nurse practitioner, is fluent in Spanish. Front desk staff speaks Spanish as well."}},
-    {"@type":"Question","name":"Are you accepting new patients and newborns?","acceptedAnswer":{"@type":"Answer","text":"Yes. All four providers are accepting new patients including newborns."}},
+    {"@type":"Question","name":"Are you accepting new patients and newborns?","acceptedAnswer":{"@type":"Answer","text":"Yes. All three providers are accepting new patients including newborns."}},
     {"@type":"Question","name":"What are your hours?","acceptedAnswer":{"@type":"Answer","text":"Monday through Friday, 8:30 AM to 5:00 PM. Closed weekends. Walk-ins for sick visits are accepted daily until capacity is reached."}},
     {"@type":"Question","name":"How does telemedicine work?","acceptedAnswer":{"@type":"Answer","text":"Telemedicine visits with Dr. Peraza are scheduled via the request form, usually same-day or next-day for established patients."}},
     {"@type":"Question","name":"Do you take my insurance?","acceptedAnswer":{"@type":"Answer","text":"In-network with sixteen plans including Aetna, Cigna, Anthem Blue Cross, United Healthcare, UMR, Health Plan of Nevada, Silver Summit, Molina, Culinary Health Fund, TriCare, UFCW, and others."}},
