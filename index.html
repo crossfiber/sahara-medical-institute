@@ -460,19 +460,30 @@
         }
 
         /* ========== INSURANCE ========== */
-        .insurance { background: var(--paper); }
-        .ins-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 56px; align-items: start; }
-        .ins-grid .label { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-deep); }
-        .ins-body { font-family: 'Fraunces', serif; font-size: clamp(1.5rem, 2.4vw, 2.1rem); line-height: 1.26; letter-spacing: -0.015em; color: var(--ink); font-weight: 400; }
-        .ins-body .hl { color: var(--plum); font-style: normal; }
-        .ins-list { margin-top: 24px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.92rem; color: var(--ink-soft); line-height: 1.7; max-width: 640px; }
-        .ins-list .toggle { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; color: var(--plum); border-bottom: 1.5px solid var(--plum); cursor: pointer; padding: 0; font-size: 0.92rem; transition: color 0.2s; }
-        .ins-list .toggle:hover { color: var(--plum-deep); border-color: var(--plum-deep); }
-        .ins-list .all { display: none; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--hairline); }
-        .ins-list.expanded .all { display: block; }
-        .ins-list.expanded .toggle { display: none; }
-        .ins-list .all a { color: var(--plum); border-bottom: 1px solid var(--plum); }
-        @media (max-width: 880px) { .ins-grid { grid-template-columns: 1fr; gap: 22px; } .ins-body { font-size: clamp(1.4rem, 5vw, 1.8rem); } }
+        .insurance { background: var(--paper); overflow: hidden; }
+        .ins-marquee { position: relative; width: 100%; padding: 8px 0; overflow: hidden;
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+        .ins-track { display: flex; align-items: center; gap: 18px; width: max-content; animation: ins-scroll 48s linear infinite; will-change: transform; }
+        .ins-marquee:hover .ins-track { animation-play-state: paused; }
+        @keyframes ins-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .ins-chip { display: inline-flex; align-items: center; justify-content: center; white-space: nowrap;
+            font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.45rem; letter-spacing: -0.01em; color: var(--ink-soft);
+            padding: 16px 32px; border: 1px solid var(--hairline); border-radius: 100px; background: #fff; box-shadow: 0 1px 2px rgba(41,36,60,0.04); }
+        .ins-chip img { height: 30px; width: auto; display: block; }
+        .ins-foot { margin-top: 42px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; color: var(--ink-soft); }
+        .ins-foot a { color: var(--plum); border-bottom: 1.5px solid var(--plum); transition: color 0.2s, border-color 0.2s; }
+        .ins-foot a:hover { color: var(--plum-deep); border-color: var(--plum-deep); }
+        @media (max-width: 760px) {
+            .ins-chip { font-size: 1.12rem; padding: 12px 22px; }
+            .ins-chip img { height: 24px; }
+            .ins-track { gap: 13px; animation-duration: 40s; }
+            .ins-foot { margin-top: 32px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .ins-marquee { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .ins-track { animation: none; }
+        }
 
         /* ========== FAQ ========== */
         .faq { background: var(--mist); }
@@ -823,18 +834,49 @@
 <!-- ========== INSURANCE ========== -->
 <section class="spread insurance" id="insurance">
     <div class="frame">
-        <div class="ins-grid">
-            <div class="label">Insurance</div>
-            <div>
-                <p class="ins-body">In-network with sixteen plans, including <span class="hl">Aetna, Cigna, Anthem Blue Cross, United Healthcare, Health Plan of Nevada, Molina, TriCare, UFCW,</span> and the <span class="hl">Culinary Health Fund</span>.</p>
-                <div class="ins-list" id="insList">
-                    Don't see yours? <button class="toggle" type="button" id="insToggle">View all sixteen</button>
-                    <div class="all">
-                        Aetna, Anthem Blue Cross, Beech Street, Cigna, Culinary Health Fund, Health Plan of Nevada, HealthScope Benefits, Molina Healthcare, MultiPlan, National Brotherhood, Silver Summit, SouthWest Service Administrators, TriCare, UFCW, UMR, United Healthcare. If yours isn't here, <a href="tel:+17023311700">call the front desk</a> and we'll verify in a few minutes.
-                    </div>
-                </div>
-            </div>
+        <div class="spread-head">
+            <div class="overline">Insurance</div>
+            <h2>In-network with <span class="it">sixteen</span> plans.</h2>
         </div>
+    </div>
+    <div class="ins-marquee" role="group" aria-label="Insurance plans we accept">
+        <div class="ins-track">
+            <span class="ins-chip">Aetna</span>
+            <span class="ins-chip">Cigna</span>
+            <span class="ins-chip">Anthem Blue Cross</span>
+            <span class="ins-chip">United Healthcare</span>
+            <span class="ins-chip">UMR</span>
+            <span class="ins-chip">Health Plan of Nevada</span>
+            <span class="ins-chip">Silver Summit</span>
+            <span class="ins-chip">Molina Healthcare</span>
+            <span class="ins-chip">Culinary Health Fund</span>
+            <span class="ins-chip">TriCare</span>
+            <span class="ins-chip">UFCW</span>
+            <span class="ins-chip">MultiPlan</span>
+            <span class="ins-chip">Beech Street</span>
+            <span class="ins-chip">HealthScope Benefits</span>
+            <span class="ins-chip">SouthWest Service Administrators</span>
+            <span class="ins-chip">National Brotherhood</span>
+            <span class="ins-chip" aria-hidden="true">Aetna</span>
+            <span class="ins-chip" aria-hidden="true">Cigna</span>
+            <span class="ins-chip" aria-hidden="true">Anthem Blue Cross</span>
+            <span class="ins-chip" aria-hidden="true">United Healthcare</span>
+            <span class="ins-chip" aria-hidden="true">UMR</span>
+            <span class="ins-chip" aria-hidden="true">Health Plan of Nevada</span>
+            <span class="ins-chip" aria-hidden="true">Silver Summit</span>
+            <span class="ins-chip" aria-hidden="true">Molina Healthcare</span>
+            <span class="ins-chip" aria-hidden="true">Culinary Health Fund</span>
+            <span class="ins-chip" aria-hidden="true">TriCare</span>
+            <span class="ins-chip" aria-hidden="true">UFCW</span>
+            <span class="ins-chip" aria-hidden="true">MultiPlan</span>
+            <span class="ins-chip" aria-hidden="true">Beech Street</span>
+            <span class="ins-chip" aria-hidden="true">HealthScope Benefits</span>
+            <span class="ins-chip" aria-hidden="true">SouthWest Service Administrators</span>
+            <span class="ins-chip" aria-hidden="true">National Brotherhood</span>
+        </div>
+    </div>
+    <div class="frame">
+        <p class="ins-foot">Don't see yours? <a href="tel:+17023311700">Call the front desk</a> and we'll verify your plan in a few minutes.</p>
     </div>
 </section>
 
@@ -1045,9 +1087,6 @@
         });
     });
 
-    const insList = document.getElementById('insList');
-    const insToggle = document.getElementById('insToggle');
-    if (insToggle && insList) insToggle.addEventListener('click', () => insList.classList.add('expanded'));
 
     (function() {
         const form = document.getElementById('visitForm');
