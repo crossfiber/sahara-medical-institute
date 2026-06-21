@@ -144,9 +144,12 @@
             color: var(--ink-mute); letter-spacing: 0.16em; text-transform: uppercase; margin-top: 3px;
         }
         @media (max-width: 760px) {
-            .bar-logo img { height: 32px; }
-            .bar-logo .name { font-size: 1rem; }
-            .bar-logo .word { display: none; }
+            .bar-logo { gap: 9px; min-width: 0; }
+            .bar-logo img { height: 30px; }
+            .bar-logo .word { display: inline-flex; min-width: 0; }
+            .bar-logo .name { font-size: 0.82rem; font-weight: 600; line-height: 1.08; }
+            .bar-logo .sub { display: none; }
+            .bar-right { gap: 14px; }
         }
 
         .bar-links { display: flex; gap: 28px; align-items: center; }
@@ -533,7 +536,7 @@
         .visit { background: var(--paper); }
         .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
         .visit-info { display: flex; flex-direction: column; gap: 26px; }
-        .visit-info .map { aspect-ratio: 16/10; overflow: hidden; border-radius: 14px; }
+        .visit-info .map { aspect-ratio: 16/10; overflow: hidden; border-radius: 14px; background: var(--mist); }
         .visit-info .map iframe { width: 100%; height: 100%; border: 0; }
         .visit-details { display: flex; flex-direction: column; gap: 14px; }
         .vd-addr { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 500; line-height: 1.34; color: var(--ink); letter-spacing: -0.012em; }
@@ -670,7 +673,7 @@
         </div>
         <div class="hero-image">
             <div class="hero-image-inner">
-                <img src="assets/hero-kids.jpg" fetchpriority="high" alt="Children playing outdoors in the Las Vegas sun, cared for by Sahara Medical Institute pediatrics">
+                <img src="assets/hero-kids.jpg" fetchpriority="high" decoding="async" alt="Children playing outdoors in the Las Vegas sun, cared for by Sahara Medical Institute pediatrics">
             </div>
         </div>
     </div>
@@ -700,7 +703,7 @@
                 </div>
             </div>
             <div class="practice-photo">
-                <img src="assets/doc-peraza-real.jpg" alt="Dr. Francisco Peraza, MD, founder of Sahara Medical Institute">
+                <img src="assets/doc-peraza-real.jpg" alt="Dr. Francisco Peraza, MD, founder of Sahara Medical Institute" loading="lazy" decoding="async">
             </div>
         </div>
     </div>
@@ -743,7 +746,7 @@
                 <h2>What your <span class="it">first visit</span> looks like</h2>
             </div>
             <div class="fv-photo">
-                <img src="assets/care-highfive.jpg" alt="A parent and child sharing a high-five with their pediatrician during a well-child visit">
+                <img src="assets/care-highfive.jpg" alt="A parent and child sharing a high-five with their pediatrician during a well-child visit" loading="lazy" decoding="async">
             </div>
         </div>
         <div class="fv-grid">
@@ -774,7 +777,7 @@
         </div>
 
         <div class="provider-row">
-            <div class="provider-portrait"><img src="assets/provider-peraza.jpg" alt="Dr. Francisco Peraza, MD, founder of Sahara Medical Institute"></div>
+            <div class="provider-portrait"><img src="assets/provider-peraza.jpg" alt="Dr. Francisco Peraza, MD, founder of Sahara Medical Institute" loading="lazy" decoding="async"></div>
             <div class="provider-meta">
                 <div>
                     <div class="provider-name">Dr. Francisco Peraza</div>
@@ -789,7 +792,7 @@
         </div>
 
         <div class="provider-row">
-            <div class="provider-portrait"><img src="assets/provider-katelyn.jpg" alt="Katelyn E. Heck, RN, MSN, CRNP-PNP, board-certified pediatric nurse practitioner"></div>
+            <div class="provider-portrait"><img src="assets/provider-katelyn.jpg" alt="Katelyn E. Heck, RN, MSN, CRNP-PNP, board-certified pediatric nurse practitioner" loading="lazy" decoding="async"></div>
             <div class="provider-meta">
                 <div>
                     <div class="provider-name">Katelyn E. Heck</div>
@@ -804,7 +807,7 @@
         </div>
 
         <div class="provider-row">
-            <div class="provider-portrait"><img src="assets/provider-mendoza.jpg" alt="Dr. Marlon A. Mendoza, MD, pediatrician at Sahara Medical Institute"></div>
+            <div class="provider-portrait"><img src="assets/provider-mendoza.jpg" alt="Dr. Marlon A. Mendoza, MD, pediatrician at Sahara Medical Institute" loading="lazy" decoding="async"></div>
             <div class="provider-meta">
                 <div>
                     <div class="provider-name">Dr. Marlon A. Mendoza</div>
@@ -984,9 +987,7 @@
         </div>
         <div class="visit-grid">
             <div class="visit-info">
-                <div class="map">
-                    <iframe src="https://www.google.com/maps?q=5781+W+Sahara+Ave+%23500+Las+Vegas+NV+89146&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Sahara Medical Institute on Google Maps"></iframe>
-                </div>
+                <div class="map" id="visitMap" data-src="https://www.google.com/maps?q=5781+W+Sahara+Ave+%23500+Las+Vegas+NV+89146&output=embed" role="img" aria-label="Map showing Sahara Medical Institute at 5781 W Sahara Ave #500, Las Vegas, NV 89146"></div>
                 <div class="visit-details">
                     <p class="vd-addr">5781 W Sahara Ave #500,<br>Las Vegas, NV 89146</p>
                     <p class="vd-line"><strong>Call</strong><a href="tel:+17023311700">(702) 331-1700</a><span class="vd-sep">·</span>Fax (702) 818-5013</p>
@@ -1119,6 +1120,15 @@
         insModalClose.addEventListener('click', closeIns);
         insModal.addEventListener('click', e => { if (e.target === insModal) closeIns(); });
         document.addEventListener('keydown', e => { if (e.key === 'Escape' && insModal.classList.contains('open')) closeIns(); });
+    }
+
+    const vmap = document.getElementById('visitMap');
+    if (vmap && vmap.dataset.src) {
+        const loadMap = () => { if (vmap.querySelector('iframe')) return; const f = document.createElement('iframe'); f.src = vmap.dataset.src; f.loading = 'lazy'; f.referrerPolicy = 'no-referrer-when-downgrade'; f.title = 'Sahara Medical Institute on Google Maps'; vmap.appendChild(f); };
+        if ('IntersectionObserver' in window) {
+            const mio = new IntersectionObserver((ents, obs) => { ents.forEach(e => { if (e.isIntersecting) { loadMap(); obs.disconnect(); } }); }, { rootMargin: '500px' });
+            mio.observe(vmap);
+        } else { loadMap(); }
     }
 
     document.querySelectorAll('a[href^="#"]').forEach(a => {
