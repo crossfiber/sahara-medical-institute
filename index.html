@@ -437,8 +437,12 @@
             .provider-row { grid-template-columns: 1fr; gap: 16px; }
             .provider-portrait { max-width: 200px; }
         }
-        .providers-foot { margin-top: 46px; display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap; }
-        .providers-foot .note { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; color: var(--ink-soft); line-height: 1.55; max-width: 460px; }
+        .providers-foot { margin-top: 48px; display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; background: var(--lilac); border-radius: 16px; padding: 26px 32px; }
+        .providers-foot .note { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.98rem; color: var(--ink-soft); line-height: 1.55; max-width: 470px; margin: 0; }
+        .pf-cta { display: inline-flex; align-items: center; gap: 10px; background: var(--plum); color: var(--cream); border-radius: 100px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.98rem; font-weight: 600; padding: 14px 26px; white-space: nowrap; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; }
+        .pf-cta:hover { background: var(--plum-deep); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(42, 30, 82, 0.2); }
+        .pf-cta .ic { color: var(--gold); }
+        @media (max-width: 600px) { .providers-foot { padding: 22px 22px; gap: 16px; } .pf-cta { width: 100%; justify-content: center; } }
 
         /* ========== TESTIMONIALS (dark) ========== */
         .voices { background: var(--plum-deep); color: var(--cream); padding: 116px 0; }
@@ -816,7 +820,7 @@
 
         <div class="providers-foot">
             <p class="note">All three providers see well-child visits and sick walk-ins, and the whole team speaks Spanish whenever you need it. If you'd like a specific provider, ask for them by name when you call.</p>
-            <a href="tel:+17023311700" class="link-arrow">Call to schedule <span class="a">&rarr;</span></a>
+            <a href="tel:+17023311700" class="pf-cta"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.8 3.5h3.1l1.5 3.9-1.9 1.2a12 12 0 0 0 5.2 5.2l1.2-1.9 3.9 1.5v3.1a1.9 1.9 0 0 1-2.1 1.9A16.4 16.4 0 0 1 5 5.6 1.9 1.9 0 0 1 6.8 3.5z"/></svg></span> Call to schedule</a>
         </div>
     </div>
 </section>
