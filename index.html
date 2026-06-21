@@ -292,10 +292,11 @@
         .btn-primary .ic { color: var(--gold); }
         .btn-ghost {
             display: inline-flex; align-items: center; gap: 9px;
-            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 600; color: var(--ink);
-            padding: 15px 8px; border-bottom: 2px solid var(--gold); transition: color 0.2s; border-radius: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 600; color: var(--plum);
+            padding: 15px 28px; border: 1.5px solid var(--plum); border-radius: 100px;
+            transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
         }
-        .btn-ghost:hover { color: var(--plum); }
+        .btn-ghost:hover { background: var(--plum); color: var(--cream); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(42, 30, 82, 0.18); }
 
         .hero-image { position: relative; align-self: stretch; display: flex; flex-direction: column; justify-content: flex-end; }
         .hero-image-inner { position: relative; overflow: hidden; }
