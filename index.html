@@ -321,18 +321,22 @@
             .hero h1 { font-size: clamp(2.4rem, 9.5vw, 3.8rem); }
         }
 
-        /* ========== TRUST STRIP ========== */
-        .trust { padding: 26px 0; border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); margin-top: 60px; }
-        .trust .inner {
-            display: flex; flex-wrap: wrap; gap: 14px 32px; justify-content: space-between; align-items: center;
-            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.92rem; color: var(--ink-soft); font-weight: 500;
+        /* ========== TRUST CARD ========== */
+        .trust { margin-top: 54px; }
+        .trust-card { background: #fff; border: 1px solid var(--hairline); border-radius: 16px; box-shadow: 0 12px 34px rgba(42, 30, 82, 0.08); display: grid; grid-template-columns: repeat(4, 1fr); }
+        .tc-item { display: flex; align-items: center; gap: 13px; padding: 22px 22px; }
+        .tc-item svg { width: 1.4rem; height: 1.4rem; color: var(--gold-deep); flex: 0 0 auto; }
+        .tc-item .txt { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--ink); line-height: 1.3; }
+        .tc-ins-logos { display: inline-flex; align-items: center; flex: 0 0 auto; }
+        .tc-ins-logos img { width: 30px; height: 30px; border-radius: 50%; margin-left: -8px; border: 2px solid #fff; box-shadow: 0 1px 2px rgba(41, 36, 60, 0.12); }
+        .tc-ins-logos img:first-child { margin-left: 0; }
+        @media (max-width: 880px) {
+            .trust { margin-top: 36px; }
+            .trust-card { grid-template-columns: 1fr 1fr; }
+            .tc-item { padding: 18px 18px; }
+            .tc-ins { grid-column: 1 / -1; }
         }
-        .trust .pt { display: inline-flex; align-items: center; gap: 9px; }
-        .trust .pt::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex: 0 0 auto; }
-        @media (max-width: 760px) {
-            .trust { margin-top: 34px; padding: 22px 0; }
-            .trust .inner { gap: 13px 0; flex-direction: column; align-items: flex-start; }
-        }
+        @media (max-width: 440px) { .trust-card { grid-template-columns: 1fr; } .tc-ins { grid-column: auto; } }
 
         /* ========== SECTIONS ========== */
         section.spread { padding: 112px 0; }
@@ -533,6 +537,11 @@
         .vd-line a { color: var(--plum); border-bottom: 1.5px solid var(--plum); transition: color 0.2s, border-color 0.2s; }
         .vd-line a:hover { color: var(--plum-deep); border-color: var(--plum-deep); }
         .vd-sep { color: var(--ink-mute); margin: 0 9px; }
+        .vd-hours { display: flex; flex-direction: column; gap: 5px; }
+        .vh-row { display: flex; align-items: baseline; gap: 14px; }
+        .vh-day { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); width: 84px; flex: 0 0 auto; }
+        .vh-time { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.02rem; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+        .vh-time.closed { color: var(--ink-mute); font-weight: 500; }
 
         .visit-form { background: var(--mist); padding: 44px 44px 36px; border: 1px solid var(--hairline); }
         .visit-form h3 { font-size: 1.6rem; margin-bottom: 6px; color: var(--ink); font-weight: 500; }
@@ -663,11 +672,11 @@
 
     <div class="frame">
         <div class="trust">
-            <div class="inner">
-                <span class="pt">A family practice since 2007</span>
-                <span class="pt">Newborns through age 21</span>
-                <span class="pt">Walk-ins welcome for sick visits</span>
-                <span class="pt">16 insurance plans accepted</span>
+            <div class="trust-card">
+                <div class="tc-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M8.6 13.2 7.5 21l4.5-2.6L16.5 21l-1.1-7.8"/></svg><span class="txt">Family practice since 2007</span></div>
+                <div class="tc-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5.6" r="2.3"/><path d="M12 7.9v6.6"/><path d="M7.8 11.8c0-1.4 1.9-2.4 4.2-2.4s4.2 1 4.2 2.4"/><path d="M9.6 20l1.2-3.6h2.4L14.4 20"/></svg><span class="txt">Newborns through age 21</span></div>
+                <div class="tc-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20.5h16"/><path d="M7 20.5V5.2L14 4v16.5"/><path d="M11.3 12h.01"/></svg><span class="txt">Walk-ins welcome</span></div>
+                <a href="#insurance" class="tc-item tc-ins"><span class="tc-ins-logos"><img src="assets/ins-aetna.png" alt=""><img src="assets/ins-cigna.png" alt=""><img src="assets/ins-anthem.png" alt=""><img src="assets/ins-united.png" alt=""></span><span class="txt">16 plans accepted</span></a>
             </div>
         </div>
     </div>
@@ -976,7 +985,10 @@
                 <div class="visit-details">
                     <p class="vd-addr">5781 W Sahara Ave #500,<br>Las Vegas, NV 89146</p>
                     <p class="vd-line"><strong>Call</strong><a href="tel:+17023311700">(702) 331-1700</a><span class="vd-sep">·</span>Fax (702) 818-5013</p>
-                    <p class="vd-line"><strong>Open</strong>Monday to Friday, 8:30 AM to 5:00 PM<span class="vd-sep">·</span>weekends closed</p>
+                    <div class="vd-hours">
+                        <div class="vh-row"><span class="vh-day">Mon &ndash; Fri</span><span class="vh-time">8:30 AM &ndash; 5:00 PM</span></div>
+                        <div class="vh-row"><span class="vh-day">Sat &ndash; Sun</span><span class="vh-time closed">Closed</span></div>
+                    </div>
                 </div>
             </div>
 
