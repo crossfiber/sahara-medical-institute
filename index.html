@@ -104,17 +104,16 @@
         .link-arrow {
             display: inline-flex;
             align-items: baseline;
-            gap: 9px;
+            gap: 8px;
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 0.95rem;
             font-weight: 600;
             color: var(--plum);
-            border-bottom: 1.5px solid var(--plum);
-            padding-bottom: 2px;
-            transition: color 0.2s, border-color 0.2s, gap 0.2s;
+            transition: color 0.2s, gap 0.2s;
         }
-        .link-arrow:hover { color: var(--plum-deep); border-color: var(--plum-deep); gap: 13px; }
-        .link-arrow .a { line-height: 1; }
+        .link-arrow:hover { color: var(--plum-deep); gap: 12px; }
+        .link-arrow .a { line-height: 1; color: var(--gold-deep); transition: transform 0.2s; }
+        .link-arrow:hover .a { transform: translateX(2px); }
 
         .ic { display: inline-flex; align-items: center; }
         .ic svg { width: 1.05em; height: 1.05em; display: block; }
@@ -373,8 +372,7 @@
         /* ========== CARE ========== */
         .care { background: var(--mist); }
         .care-list { display: flex; flex-direction: column; }
-        .care-item { display: grid; grid-template-columns: 110px 1fr 1fr auto; gap: 48px; align-items: flex-start; padding: 44px 0; border-bottom: 1px solid var(--hairline); }
-        .care-item:first-child { border-top: 1px solid var(--hairline); }
+        .care-item { display: grid; grid-template-columns: 110px 1fr 1fr auto; gap: 48px; align-items: flex-start; padding: 30px 0; }
         .care-num { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 2.5rem; line-height: 1; color: var(--gold); letter-spacing: 0; font-variant-numeric: tabular-nums; }
         .care-title { font-family: 'Fraunces', serif; font-size: 1.85rem; font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); }
         .care-title .who { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--plum); margin-top: 10px; }
@@ -525,18 +523,16 @@
         /* ========== VISIT ========== */
         .visit { background: var(--paper); }
         .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-        .visit-info { display: flex; flex-direction: column; gap: 22px; }
-        .visit-card { background: var(--mist); border: 1px solid var(--hairline); border-radius: 14px; overflow: hidden; }
-        .vc-row { display: grid; grid-template-columns: 84px 1fr; gap: 16px; align-items: start; padding: 18px 24px; border-bottom: 1px solid var(--hairline-soft); }
-        .vc-row:last-child { border-bottom: none; }
-        .vc-label { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-deep); padding-top: 4px; }
-        .vc-val { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; line-height: 1.5; color: var(--ink); font-weight: 500; }
-        .vc-val .big { font-family: 'Fraunces', serif; font-size: 1.12rem; font-weight: 500; }
-        .vc-val .muted { color: var(--ink-soft); font-weight: 400; }
-        .vc-val a { color: var(--plum); border-bottom: 1.5px solid var(--plum); transition: color 0.2s, border-color 0.2s; }
-        .vc-val a:hover { color: var(--plum-deep); border-color: var(--plum-deep); }
-        .visit-info .map { aspect-ratio: 16/10; overflow: hidden; border: 1px solid var(--hairline); border-radius: 14px; }
+        .visit-info { display: flex; flex-direction: column; gap: 26px; }
+        .visit-info .map { aspect-ratio: 16/10; overflow: hidden; border-radius: 14px; }
         .visit-info .map iframe { width: 100%; height: 100%; border: 0; }
+        .visit-details { display: flex; flex-direction: column; gap: 14px; }
+        .vd-addr { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 500; line-height: 1.34; color: var(--ink); letter-spacing: -0.012em; }
+        .vd-line { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.02rem; line-height: 1.5; color: var(--ink-soft); }
+        .vd-line strong { color: var(--ink); font-weight: 600; margin-right: 6px; }
+        .vd-line a { color: var(--plum); border-bottom: 1.5px solid var(--plum); transition: color 0.2s, border-color 0.2s; }
+        .vd-line a:hover { color: var(--plum-deep); border-color: var(--plum-deep); }
+        .vd-sep { color: var(--ink-mute); margin: 0 9px; }
 
         .visit-form { background: var(--mist); padding: 44px 44px 36px; border: 1px solid var(--hairline); }
         .visit-form h3 { font-size: 1.6rem; margin-bottom: 6px; color: var(--ink); font-weight: 500; }
@@ -557,7 +553,7 @@
         .visit-success { display: none; margin-top: 22px; padding: 16px 20px; background: var(--lilac); color: var(--ink); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; border-left: 3px solid var(--plum); }
         .visit-success.show { display: block; }
         .visit-note { margin-top: 18px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.78rem; color: var(--ink-mute); }
-        @media (max-width: 880px) { .visit-grid { grid-template-columns: 1fr; gap: 36px; } .visit-form { padding: 30px 22px; } .vc-row { grid-template-columns: 72px 1fr; padding: 15px 18px; } .fld { margin-bottom: 18px; } }
+        @media (max-width: 880px) { .visit-grid { grid-template-columns: 1fr; gap: 34px; } .visit-form { padding: 30px 22px; } .vd-addr { font-size: 1.25rem; } .fld { margin-bottom: 18px; } }
 
         /* ========== FOOTER ========== */
         footer.foot { background: var(--plum-deep); color: rgba(244, 239, 230, 0.78); padding: 88px 0 34px; }
@@ -974,13 +970,13 @@
         </div>
         <div class="visit-grid">
             <div class="visit-info">
-                <div class="visit-card">
-                    <div class="vc-row"><span class="vc-label">Office</span><span class="vc-val"><span class="big">Sahara Medical Institute</span><br>5781 W Sahara Ave #500<br>Las Vegas, NV 89146</span></div>
-                    <div class="vc-row"><span class="vc-label">Phone</span><span class="vc-val"><a href="tel:+17023311700">(702) 331-1700</a><br><span class="muted">Fax (702) 818-5013</span></span></div>
-                    <div class="vc-row"><span class="vc-label">Hours</span><span class="vc-val">Mon&ndash;Fri, 8:30 AM &ndash; 5:00 PM<br><span class="muted">Saturday &amp; Sunday closed</span></span></div>
-                </div>
                 <div class="map">
                     <iframe src="https://www.google.com/maps?q=5781+W+Sahara+Ave+%23500+Las+Vegas+NV+89146&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Sahara Medical Institute on Google Maps"></iframe>
+                </div>
+                <div class="visit-details">
+                    <p class="vd-addr">5781 W Sahara Ave #500,<br>Las Vegas, NV 89146</p>
+                    <p class="vd-line"><strong>Call</strong><a href="tel:+17023311700">(702) 331-1700</a><span class="vd-sep">·</span>Fax (702) 818-5013</p>
+                    <p class="vd-line"><strong>Open</strong>Monday to Friday, 8:30 AM to 5:00 PM<span class="vd-sep">·</span>weekends closed</p>
                 </div>
             </div>
 
